@@ -40,18 +40,47 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
+					<h1>Alpaca</h1>
+					Logo here
 				</section>
-
+				<section>
+					<h2>Campaigns care about two things...</h2>
+				</section>
+				<section>
+					<h2>Votes</h2>
+				</section>
+				<section>
+					<h2>Money</h2>
+				</section>
+				<section>
+					Dashboard here
+				</section>
+				<section>
+					<h2>Money in Political Campaigns</h2>
+					<div class='row'>
+						<div class='col-sm-5'>
+							<img src='img/contributionmap.png'>
+							<img src='img/moneystats.png'>
+						</div>
+						<div class='col-sm-2'></div>
+						<div class='col-sm-5'>
+							<div class='row'><div class='col-sm-12'>
+								<h6>2010 State and Local Elections</h6>
+								<p>$3.5 billion raised for gubernatorial, house and other state and local level elections</p>
+							</div></div>
+							<div class='row'><div class='col-sm-12'>
+								<h6>2012 Presidential Election</h6>
+									<p>~$2.3 billion spent in 2012 elections</p>
+									<p>$722 million of that $2.3 billion spent on media</p>
+							</div></div>
+						</div>
+					</div>
+				</section>
 				<!-- ... -->
 
 				<section>
 					<h2>Team</h2>
-					<div class='row'>
+					<div class='row' id='devTeam'>
 						<div class='col-sm-3'>
 							<span class='team'>Daniel Thirman</span>
 						</div>
@@ -65,7 +94,7 @@
 							<span class='team'>Dhrumil Mehta</span>
 						</div>
 					</div>
-					<div class='row' id='devTeam'>
+					<div class='row'>
 						<div class='col-sm-3'>
 							<img height='200' width='200' src='img/danielthirman.jpg'>
 						</div>
@@ -79,7 +108,7 @@
 							<img height='200' width='200' src='img/dhrumilmehta.jpg'>
 						</div>
 					</div>
-					<div class='row'>
+					<div class='row' id='bizTeam'>
 						<div class='col-sm-3'>
 							<span class='team'>Carson Potter</span>
 						</div>
@@ -130,13 +159,13 @@
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
+				controls: false,
 				progress: true,
 				history: true,
 				center: true,
 
 				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Parallax scrolling
 				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
