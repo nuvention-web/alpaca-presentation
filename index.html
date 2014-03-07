@@ -87,82 +87,131 @@
 
 					</style>
 
-					<table id="donors" style="float: left; width: 300px">
-						<caption>Donors</caption>
-							<tbody>
-							<tr class="hide">
-								<td>asdf</td>
-								<td>asdf</td>
-								<td>asdf</td>
-							</tr>
-							<tr class="hide">
-								<td>asdf</td>
-								<td>asdf</td>
-								<td>asdf</td>
-							</tr>
-							<tr class="hide">
-								<td>asdf</td>
-								<td>asdf</td>
-								<td>asdf</td>
-							</tr>
-							<tr class="hide">
-								<td>asdf</td>
-								<td>asdf</td>
-								<td>asdf</td>
-							</tr> 
-						</tbody>
-					</table>
+					<div class="animateSlideWrapper">
 
-					<table id="social" style="float: right; width: 300px">
-						<caption>Social Media</caption>
-						<tbody>
-							<tr class="hide">
-								<td>asdf</td>
-								<td>asdf</td>
-								<td>asdf</td>
-							</tr>
-							<tr class="hide">
-								<td>asdf</td>
-								<td>asdf</td>
-								<td>asdf</td>
-							</tr>
-							<tr class="hide">
-								<td>asdf</td>
-								<td>asdf</td>
-								<td>asdf</td>
-							</tr>
-							<tr class="hide">
-								<td>asdf</td>
-								<td>asdf</td>
-								<td>asdf</td>
-							</tr> 
-						</tbody>
-					</table>
+						<div class="animateSlide">
+							<table id="donors" style="float: left; width: 300px">
+								<caption>Donors</caption>
+									<tbody>
+									<tr class="hide">
+										<td>asdf</td>
+										<td>asdf</td>
+										<td>asdf</td>
+									</tr>
+									<tr class="hide">
+										<td>asdf</td>
+										<td>asdf</td>
+										<td>asdf</td>
+									</tr>
+									<tr class="hide">
+										<td>asdf</td>
+										<td>asdf</td>
+										<td>asdf</td>
+									</tr>
+									<tr class="hide">
+										<td>asdf</td>
+										<td>asdf</td>
+										<td>asdf</td>
+									</tr> 
+								</tbody>
+							</table>
+
+							<table id="social" style="float: right; width: 300px">
+								<caption>Social Media</caption>
+								<tbody>
+									<tr class="hide">
+										<td>asdf</td>
+										<td>asdf</td>
+										<td>asdf</td>
+									</tr>
+									<tr class="hide">
+										<td>asdf</td>
+										<td>asdf</td>
+										<td>asdf</td>
+									</tr>
+									<tr class="hide">
+										<td>asdf</td>
+										<td>asdf</td>
+										<td>asdf</td>
+									</tr>
+									<tr class="hide">
+										<td>asdf</td>
+										<td>asdf</td>
+										<td>asdf</td>
+									</tr> 
+								</tbody>
+							</table>
+						</div>
+					</div>
 
 					<script>
 
-						var donors = $('#donors > tbody').children('tr').length;
-						donorCounter = 0;
-						var donorAnimate = setInterval( function() { 
-							$('#donors > tbody  > tr:eq(' + donorCounter + ')').removeClass("hide");
-							console.log(donorCounter);
-							donorCounter++;
-							if (donorCounter >= donors) {
-								clearInterval(donorAnimate);
-							}
-						}, 500);
+						var animateClone;
+						var intervals = [];
+						var timeouts = [];
 
-						var social = $('#social > tbody').children('tr').length;
-						socialCounter = 0;
-						var socialAnimate = setInterval( function() { 
-							$('#social > tbody  > tr:eq(' + socialCounter + ')').removeClass("hide");
-							console.log(socialCounter);
-							socialCounter++;
-							if (socialCounter >= social) {
-								clearInterval(socialAnimate);
-							}
-						}, 500);
+						animateClone = $(".animateSlideWrapper").clone().html();
 
+						function donorAnimation(interval) {
+							var donors = $('#donors > tbody').children('tr').length;
+							donorCounter = 1;
+							var donorAnimate = setInterval( function() { 
+								$('#donors > tbody  > tr:eq(' + donorCounter + ')').removeClass("hide");
+								donorCounter++;
+								if (donorCounter >= donors) {
+									clearInterval(donorAnimate);
+								}
+							}, interval);
+
+							intervals.push(donorAnimate);
+
+							return interval * donors;
+						}
+
+						function socialAnimation(interval) {
+							var social = $('#social > tbody').children('tr').length;
+							socialCounter = 1;
+							var socialAnimate = setInterval( function() { 
+								$('#social > tbody  > tr:eq(' + socialCounter + ')').removeClass("hide");
+								socialCounter++;
+								if (socialCounter >= social) {
+									clearInterval(socialAnimate);
+								}
+							}, interval);
+							
+							intervals.push(socialAnimate);
+
+							return interval * social;
+						}
+
+						function animateSlide() {
+							var interval = 500;	
+
+							timeToCompletion = donorAnimation(interval, intervals);
+
+							var delaySocialAnimation = setTimeout(function() { 
+								socialAnimation(interval, intervals)
+							}, timeToCompletion - interval);
+
+							timeouts.push(delaySocialAnimation);
+						}
+
+						function resetSlide() {
+
+							// Cancel all pending intervals
+							for (var i in intervals) {
+							   window.clearInterval(intervals[i]);
+							}
+
+							// Cancel all pending timeouts
+							for (var i in timeouts) {
+							   window.clearTimeout(timeouts[i]);
+							}
+
+							$(".animateSlideWrapper > .animateSlide").remove();
+							$(".animateSlideWrapper").append(animateClone);
+						}
+						
 
 					</script>
 
@@ -187,7 +236,7 @@
 					<p>Limited tech.</p>
 				</section>
 
-				<section data-background="img/tshirt.png" data-background-size="1200px" data-transition='none' data-background-transition='none'>
+				<!-- <section data-background="img/tshirt.png" data-background-size="1200px" data-transition='none' data-background-transition='none'> -->
 
 				<section data-state="title-slide">
 					<h1 class="title-slide-text">The guts</h1>
@@ -414,6 +463,31 @@
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
+
+			// If we start off on this slide
+			Reveal.addEventListener( 'ready', function( event ) {
+				if (event.indexh === 4) {
+					console.log("animate slide " + event.indexh);
+					animateSlide();
+				}
+			} );
+
+			// If we navigate to the slide from the slide before or slide after
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+
+				if (event.indexh === 4) {
+					console.log("animate slide " + event.indexh);
+					animateSlide();
+				}
+				else if (event.indexh === 3 || event.indexh === 5) {
+					console.log("reset from slide " + event.indexh);
+					resetSlide();
+				}
+
+				// else if (event.previousSlide == 3 || event.nextSlide == 4) {
+				
+				// }
+			} );
 
 		</script>
 
