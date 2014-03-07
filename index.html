@@ -294,13 +294,13 @@
 						}
 
 						function animateSlide() {
-							var interval = 500;	
+							var interval = 750;	
 
 							timeToCompletion = donorAnimation(interval, intervals);
 
 							var delaySocialAnimation = setTimeout(function() { 
 								socialAnimation(interval, intervals)
-							}, timeToCompletion - interval);
+							}, timeToCompletion);
 
 							timeouts.push(delaySocialAnimation);
 						}
