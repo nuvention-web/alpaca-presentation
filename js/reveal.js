@@ -549,7 +549,7 @@ var Reveal = (function(){
 		dom.wrapper.setAttribute( 'data-background-transition', config.backgroundTransition );
 
 		dom.controls.style.display = config.controls ? 'block' : 'none';
-		dom.progress.style.display = config.progress ? 'block' : 'none';
+		// dom.progress.style.display = config.progress ? 'block' : 'none';
 
 		if( config.rtl ) {
 			dom.wrapper.classList.add( 'rtl' );
