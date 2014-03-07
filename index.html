@@ -32,20 +32,6 @@
 	         });
 	    </script>
 
-		<style>
-
-			.hide { display: none; }
-			.reveal .table-sm > * { font-size: 24px; }
-			.reveal .table-xs > * { font-size: 20px; }
-			.donors-column, .social-column { height: 450px; }
-			.tableWrapper { height: 400px; }
-			.reveal i {
-				font-family: FontAwesome;
-				font-style: normal;
-			}
-
-		</style>	    
-
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/npr.css" id="theme">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -70,6 +56,20 @@
 	</head>
 
 	<body>
+
+		<style>
+
+			.hide { display: none; }
+			.reveal .table-sm > * { font-size: 24px; }
+			.reveal .table-xs > * { font-size: 20px; }
+			.donors-column, .social-column { height: 450px; }
+			.tableWrapper { height: 400px; }
+			.reveal i {
+				font-family: FontAwesome;
+				font-style: normal;
+			}
+
+		</style>		
 
 		<div class="reveal">
 
@@ -419,8 +419,23 @@
 
 				</section>
 
-				<section>
-					<i class="fa fa-user"></i>
+				<section class="center">
+
+					<div style="position: relative; top: 50px; display: block; z-index: 3;">
+						<i class="fa fa-user fragment" data-fragment-index="1" style="font-size: 10em; color: black;"></i>
+					</div>
+
+					<div style="position: relative; top: -125px; left: -25px; display: inline; z-index: 0;">
+						<i class="fa fa-user fragment" data-fragment-index="3" style="font-size: 5em; position: relative; top: -20px; left: 80px; z-index: 1; color: pink; "></i>
+						<i class="fa fa-user fragment" data-fragment-index="2" style="font-size: 8em; position: relative; color: yellow; z-index: 3;"></i>
+					</div>
+
+					<div style="position: relative; top: -125px; left: 25px; display: inline; z-index: 1;">
+						<i class="fa fa-user fragment" data-fragment-index="2" style="font-size: 8em; position: relative; color: green; z-index: 3;"></i>
+						<i class="fa fa-user fragment" data-fragment-index="3" style="font-size: 5em; position: relative; top: -20px; left: -80px; z-index: 1; color: purple; "></i>
+					</div>
+
+					<!-- orange -->
 				</section>
 
 				<section>
