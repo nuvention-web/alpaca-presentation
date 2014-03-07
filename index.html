@@ -35,6 +35,8 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/npr.css" id="theme">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -98,7 +100,7 @@
 						<p style='font-size:80%; text-align: left;'>$722 million went to media</p>
 						<!-- <p style='font-size:80%; text-align: left;'>Obama put $33 million into tech</p> -->
 					</div>
-					<div class='fragment' style="border-left:1px solid #000;height:500px float:center;">
+					<div style="border-left:1px solid #000;height:500px float:center;">
 
 					</div>
 					<div class='fragment' style='float:right;'>
@@ -134,111 +136,158 @@
 							display: none;
 						}
 
+						.reveal i {
+							font-family: FontAwesome;
+							font-style: normal;
+						}
+
+						.reveal .table-sm > * {
+						  font-size: 24px;
+						}
+
+						.reveal .table-xs > * {
+						  font-size: 20px;
+						}
+
+						.donors-column, .social-column {
+							height: 450px;
+						}
+
+						.tableWrapper {
+							height: 400px;
+						}
+
+
 					</style>
 
 					<div class="animateSlideWrapper">
 
 						<div class="animateSlide">
 
-							<div class="donors-column pull-left" style="width: 400px;">
-								<div class="tableWrapper" style="height: 330px;">
-									<table id="donors" class="table table-xs">
-										<caption><h3>Donors</h3></caption>
-									    <colgroup>
-									       <col span="1" style="width: 50%;">
-									       <!-- <col span="1" style="width: 5%;"> -->
-									       <col span="1" style="width: 50%;">
-									    </colgroup>
-										<tbody>
-											<tr class="hide">
-												<td>Alan Ritter</td>
-												<!-- <td>asdf</td> -->
-												<td>aritter@gmail.com</td>
-											</tr>
-											<tr class="hide">
-												<td>Brenda Mathers</td>
-												<!-- <td>asdf</td> -->
-												<td>b.mat7@yahoo.com</td>
-											</tr>
-											<tr class="hide">
-												<td>Alexander Waldman</td>
-												<!-- <td>asdf</td> -->
-												<td>awal@gmail.com</td>
-											</tr>
-											<tr class="hide">
-												<td>Kirk Davies</td>
-												<!-- <td>asdf</td> -->
-												<td>ky143@gmail.com</td>
-											</tr> 
-											<tr class="hide">
-												<td>Christine Kroll</td>
-												<!-- <td>asdf</td> -->
-												<td>ChriRoll@hotmail.com</td>
-											</tr>
-											<tr class="hide">
-												<td>James Glum</td>
-												<!-- <td>asdf</td> -->
-												<td>GlumJ13@gmail.com</td>
-											</tr>
-											<tr class="hide">
-												<td>Jose Delgado</td>
-												<!-- <td>asdf</td> -->
-												<td>JD88@yahoo.com</td>
-											</tr> 									
-										</tbody>
-									</table>
+							<div class='row'>
+								<div class="donors-column col-sm-5">
+									<div class="tableWrapper">
+										<table id="donors" class="table table-xs">
+											<caption><h3>FollowTheMoney.org</h3></caption>
+										    <colgroup>
+										       <col span="1" style="width: 50%;">
+										       <!-- <col span="1" style="width: 5%;"> -->
+										       <col span="1" style="width: 50%;">
+										    </colgroup>
+											<tbody>
+												<tr class="hide">
+													<td>Alan Ritter</td>
+													<!-- <td>asdf</td> -->
+													<td>aritter@gmail.com</td>
+												</tr>
+												<tr class="hide">
+													<td>Brenda Mathers</td>
+													<!-- <td>asdf</td> -->
+													<td>b.mat7@yahoo.com</td>
+												</tr>
+												<tr class="hide">
+													<td>Alexander Waldman</td>
+													<!-- <td>asdf</td> -->
+													<td>awal@gmail.com</td>
+												</tr>
+												<tr class="hide">
+													<td>Kirk Davies</td>
+													<!-- <td>asdf</td> -->
+													<td>ky143@gmail.com</td>
+												</tr> 
+												<tr class="hide">
+													<td>Christine Kroll</td>
+													<!-- <td>asdf</td> -->
+													<td>ChriRoll@hotmail.com</td>
+												</tr>
+												<tr class="hide">
+													<td>James Glum</td>
+													<!-- <td>asdf</td> -->
+													<td>GlumJ13@gmail.com</td>
+												</tr>
+												<tr class="hide">
+													<td>Jose Delgado</td>
+													<!-- <td>asdf</td> -->
+													<td>JD88@yahoo.com</td>
+												</tr> 									
+											</tbody>
+										</table>
+									</div>
+
+									<div class="progress progress-striped active donor">
+									  <div class="progress-bar donor" role="progressbar" style="width: 0%;">
+									    <span class="sr-only">60% Complete</span>
+									  </div>
+									</div>
+								</div> <!-- end donor-column -->
+
+								<div class="col-sm-2" style="height: 425px;">
+									<div class="resolve hide">
+										<i class="fa fa-user"></i>
+										<img src="img/loading.gif" style="height: 25px; margin-top: 50%"></img>
+										<i class="fa fa-user"></i>
+									</div>
 								</div>
 
-								<div class="progress progress-striped active donor">
-								  <div class="progress-bar donor" role="progressbar" style="width: 0%;">
-								    <span class="sr-only">60% Complete</span>
-								  </div>
-								</div>
+								<div class="social-column col-sm-5">
+									<div class="tableWrapper">
+										<table id="social" class="table table-xs">
+											<caption><h3>Online Social Networks</h3></caption>
+											<!--
+										    <colgroup>
+										       <col span="1" style="width: 60%;">
+										       <col span="1" style="width: 5%;">
+										       <col span="1" style="width: 35%;">
+										    </colgroup>
+ 											-->
+											<tbody>
+												<tr class="hide">
+													<td><a href="https://twitter.com/alan_ritter">@alan_ritter</a></td>
+													<td><a href="">AlanRitter</a></td>
+													<td><a href="">AlanRitter</a></td>
+												</tr>
+												<tr class="hide">
+													<td><a href="">@brenda</a></td>
+													<td><a href="">asdf</a></td>
+													<td><a href="">asdf</a></td>
+												</tr>
+												<tr class="hide">
+													<td><a href="">@alexander</a></td>
+													<td><a href="">asdf</a></td>
+													<td><a href="">asdf</a></td>
+												</tr>
+												<tr class="hide">
+													<td><a href="">@kirk</a></td>
+													<td><a href="">asdf</a></td>
+													<td><a href="">asdf</a></td>
+												</tr> 
+												<tr class="hide">
+													<td><a href="">@christine</a></td>
+													<td><a href="">asdf</a></td>
+													<td><a href="">asdf</a></td>
+												</tr> 
+												<tr class="hide">
+													<td><a href="">@james</a></td>
+													<td><a href="">asdf</a></td>
+													<td><a href="">asdf</a></td>
+												</tr> 
+												<tr class="hide">
+													<td><a href="">@jose</a></td>
+													<td><a href="">asdf</a></td>
+													<td><a href="">asdf</a></td>
+												</tr> 
+											</tbody>
+										</table>
+									</div>
 
+									<div class="progress progress-striped active social">
+									  <div class="progress-bar social" role="progressbar" style="width: 0%;">
+									    <span class="sr-only">60% Complete</span>
+									  </div>
+									</div>
+								</div> <!-- end social-column -->
 
-							</div>
-
-							<div class="social-column pull-right" style="width: 400px;">
-								<div class="tableWrapper" style="height: 330px;">
-									<table id="social" class="table table-xs">
-										<caption><h3>Social Media</h3></caption>
-									    <colgroup>
-									       <col span="1" style="width: 60%;">
-									       <col span="1" style="width: 5%;">
-									       <col span="1" style="width: 35%;">
-									    </colgroup>								
-										<tbody>
-											<tr class="hide">
-												<td>asdf</td>
-												<td>asdf</td>
-												<td>asdf</td>
-											</tr>
-											<tr class="hide">
-												<td>asdf</td>
-												<td>asdf</td>
-												<td>asdf</td>
-											</tr>
-											<tr class="hide">
-												<td>asdf</td>
-												<td>asdf</td>
-												<td>asdf</td>
-											</tr>
-											<tr class="hide">
-												<td>asdf</td>
-												<td>asdf</td>
-												<td>asdf</td>
-											</tr> 
-										</tbody>
-									</table>
-								</div>
-
-								<div class="progress progress-striped active social">
-								  <div class="progress-bar social" role="progressbar" style="width: 0%;">
-								    <span class="sr-only">60% Complete</span>
-								  </div>
-								</div>
-
-							</div>
+							</div> <!-- end row -->
 						</div>
 					</div>
 
@@ -257,7 +306,7 @@
 								$('#donors > tbody  > tr:eq(' + donorCounter + ')').removeClass("hide");
 
 								$(".progress-bar.donor").css("width", (donorCounter+1)/donors * 100 + "%");
-								console.log((donorCounter+1)/donors * 100);
+								// console.log((donorCounter+1)/donors * 100);
 
 								donorCounter++;
 
@@ -279,7 +328,7 @@
 								$('#social > tbody  > tr:eq(' + socialCounter + ')').removeClass("hide");
 
 								$(".progress-bar.social").css("width", (socialCounter+1)/social * 100 + "%");
-								console.log((socialCounter+1)/social * 100);
+								// console.log((socialCounter+1)/social * 100);
 								socialCounter++;
 
 								if (socialCounter >= social) {
@@ -293,16 +342,32 @@
 							return interval * social;
 						}
 
+						function resolveAnimation(interval) {
+							$(".resolve").removeClass("hide");
+						}
+
 						function animateSlide() {
 							var interval = 750;	
 
-							timeToCompletion = donorAnimation(interval, intervals);
+							var timeDonorCompletion = donorAnimation(interval, intervals);
 
 							var delaySocialAnimation = setTimeout(function() { 
-								socialAnimation(interval, intervals)
-							}, timeToCompletion);
 
+								var timeSocialCompletion = socialAnimation(interval);
+
+								console.log(timeDonorCompletion + timeSocialCompletion);
+
+								var delayResolveAnimation = setTimeout(function() { 
+									resolveAnimation(interval)
+								}, timeSocialCompletion);
+
+								timeouts.push(delayResolveAnimation);
+
+
+							}, timeDonorCompletion);
 							timeouts.push(delaySocialAnimation);
+
+							
 						}
 
 						function resetSlide() {
