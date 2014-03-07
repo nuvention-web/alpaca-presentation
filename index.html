@@ -1,10 +1,11 @@
+
 <!doctype html>
 <html lang="en">
 
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>NPR's App Template</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -14,19 +15,36 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+	<script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
+    <script>
+        WebFont.load({
+             custom: {
+                 families: [
+                     'Gotham SSm:n4,n7',
+                     'Gotham:n4,n7'
+                 ],
+                 urls: [
+                     'http://s.npr.org/templates/css/fonts/GothamSSm.css',
+                     'http://s.npr.org/templates/css/fonts/Gotham.css'
+                 ]
+             },
+             timeout: 10000
+         });
+    </script>
+
 		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/theme/npr.css" id="theme">
-		<link rel="stylesheet" href="css/theme/alpaca.css">
-		<!--<link rel="stylesheet" href="css/theme/default.css" id="theme"-->
 
 		<!-- For syntax highlighting -->
-		<!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
+
+		<script src="js/jquery.js"></script>
+		<script src="js/freezeframe.min.js"></script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -40,112 +58,168 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Alpaca</h1>
-					Logo here
+					<p><img src="img/logo.svg" height="400px"></img></p>
+					<h2>Alpaca</h2>
 				</section>
-				<section>
-					<h2>Campaigns care about two things...</h2>
-				</section>
-				<section>
-					<h2>Votes</h2>
-				</section>
-				<section>
-					<h2>Money</h2>
-				</section>
-				<section>
-					Dashboard here
-				</section>
-				<section>
-					<h2>Money in Political Campaigns</h2>
-					<div class='row'>
-						<div class='col-sm-5'>
-							<img src='img/contributionmap.png'>
-							<img src='img/moneystats.png'>
-						</div>
-						<div class='col-sm-2'></div>
-						<div class='col-sm-5'>
-							<div class='row'><div class='col-sm-12'>
-								<h6>2010 State and Local Elections</h6>
-								<p>$3.5 billion raised for gubernatorial, house and other state and local level elections</p>
-							</div></div>
-							<div class='row'><div class='col-sm-12'>
-								<h6>2012 Presidential Election</h6>
-									<p>~$2.3 billion spent in 2012 elections</p>
-									<p>$722 million of that $2.3 billion spent on media</p>
-							</div></div>
-						</div>
-					</div>
-				</section>
-				<!-- ... -->
 
-				<section>
-					<h2>Team</h2>
-					<div class='row' id='devTeam'>
-						<div class='col-sm-3'>
-							<span class='team'>Daniel Thirman</span>
-						</div>
-						<div class='col-sm-3'>
-							<span class='team'>Moritz Gellner</span>
-						</div>
-						<div class='col-sm-3'>
-							<span class='team'>Al Johri</span>
-						</div>
-						<div class='col-sm-3'>
-							<span class='team'>Dhrumil Mehta</span>
-						</div>
-					</div>
-					<div class='row'>
-						<div class='col-sm-3'>
-							<img height='200' width='200' src='img/danielthirman.jpg'>
-						</div>
-						<div class='col-sm-3'>
-							<img height='200' width='200' src='img/moritzgellner.jpg'>
-						</div>
-						<div class='col-sm-3'>
-							<img height='200' width='200' src='img/aljohri.jpg'>
-						</div>
-						<div class='col-sm-3'>
-							<img height='200' width='200' src='img/dhrumilmehta.jpg'>
-						</div>
-					</div>
-					<div class='row' id='bizTeam'>
-						<div class='col-sm-3'>
-							<span class='team'>Carson Potter</span>
-						</div>
-						<div class='col-sm-3'>
-							<span class='team'>David Harris</span>
-						</div>
-						<div class='col-sm-3'>
-							<span class='team'>Dimitri Fautsch</span>
-						</div>
-						<div class='col-sm-3'>
-							<span class='team'>Sergio Camargo</span>
-						</div>
-					</div>
-					<div class='row' id='bizTeam'>
-						<div class='col-sm-3'>
-							<img height='200' width='200' src='img/carsonpotter.jpg'>
-						</div>
-						<div class='col-sm-3'>
-							<img height='200' width='200' src='img/davidharris.jpg'>
-						</div>
-						<div class='col-sm-3'>
-							<img height='200' width='200' src='img/dimitrifautsch.jpg'>
-						</div>
-						<div class='col-sm-3'>
-							<img height='200' width='200' src='img/sergiocamargo.jpg'>
-						</div>
-					</div>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
+				<section data-state="title-slide">
+					<h1 class="title-slide-text">A brief overview</h1>
 				</section>
 
 				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
+					<p>An opinionated project template for client-side apps.</p>
 				</section>
+
+				<section>
+					<p>We use it for <strong>everything</strong> we do.</p>
+				</section>
+
+				<section>
+					<p>Thus, the app template is highly customizable.</p>
+				</section>
+
+				<section data-state="title-slide">
+					<h1 class="title-slide-text">Things we made</h1>
+				</section>
+
+				<section data-background="img/tshirt.png" data-background-size="1200px" data-transition='none' data-background-transition='none'>
+				</section>
+
+				<section data-background="img/wolves.png" data-background-size="1200px" data-transition='none' data-background-transition='none'>
+				</section>
+
+				<section data-background="img/playgrounds.png" data-background-size="1200px" data-transition='none' data-background-transition='none'>
+				</section>
+
+				<section data-background="img/ad.png" data-background-size="1200px" data-transition='none' data-background-transition='none'>
+				</section>
+
+				<section data-state="title-slide">
+					<h1 class="title-slide-text">The guts</h1>
+				</section>
+
+				<section>
+					<h1>Flask</h1>
+				</section>
+
+				<section>
+					<h1>Fabric</h1>
+				</section>
+
+				<section>
+					<h1>Jinja2</h1>
+				</section>
+
+				<section>
+					<h1>Amazon S3</h1>
+				</section>
+
+				<section>
+					<h1>Bootstrap</h1>
+					<p>(LESS)</p>
+				</section>
+
+				<section>
+					<h2><strong>Whatever else the project needs</strong></h2>
+				</section>
+
+				<section data-state="title-slide">
+					<h1 class="title-slide-text">Starting a project</h1>
+				</section>
+
+				<section>
+					<h2>Cloning</h2>
+					<img class="freezeframe" src="img/clone.gif" />
+				</section>
+
+				<section>
+					<h2>Bootstrapping</h2>
+					<img class="freezeframe" src="img/bootstrap.gif" />
+				</section>
+
+				<section>
+					<h2>Default GitHub Issues</h2>
+					<img class="freezeframe" src="img/issues.gif" />
+				</section>
+
+				<section>
+					<h2>Initial Project Template</h2>
+					<img class="freezeframe" src="img/app.py.gif" />
+				</section>
+
+				<section>
+					<p>Let's <a href="http://www.github.com/tylerfisher/nicar-rulez" target="_blank">take a look</a> at everything we have.</a></p>
+				</section>
+
+				<section data-state="title-slide">
+					<h2 class="title-slide-text">Spreadsheets!</h2>
+				</section>
+
+				<section>
+					<h2>Publish spreadsheet</h2>
+					<img class="freezeframe" src="img/spreadsheet_init.gif" />
+				</section>
+
+				<section>
+					<h2>Configure app</h2>
+					<img class="freezeframe" src="img/spreadsheet_config.gif" />
+				</section>
+
+				<section>
+					<h2><a href="https://docs.google.com/a/tylerjfisher.com/spreadsheet/ccc?key=0AqjLQISCZzBkdE5rTV9EVFJ0d2h0R1BmQlYtZXY1MEE&usp=drive_web#gid=0" target="_blank">Import</a> your data</h2>
+				</section>
+
+				<section>
+					<h2>Update copy</h2>
+					<img class="freezeframe" src="img/update_copy.gif" />
+				</section>
+
+				<section>
+					<p>Write <a href="https://github.com/TylerFisher/nicar-rulez/blob/master/templates/index.html" target="_blank">Jinja templates</a> to interact with the spreadsheet.</p>
+				</section>
+
+				<section data-state="title-slide">
+					<h2 class="title-slide-text">One-touch deployment</h2>
+				</section>
+
+				<section>
+					<h2>Cross your fingers</h2>
+					<img class="freezeframe" src="img/deploy.gif" />
+				</section>
+
+				<section>
+					<h1>What happened?</h1>
+				</section>
+
+				<section>
+					<p>Deployment targets are set in <a href="https://github.com/TylerFisher/nicar-rulez/blob/master/app_config.py" target="_blank"><code>app_config.py</code></a>.</p>
+				</section>
+
+				<section>
+					<p>LESS files and JSTs are compiled.</p>
+				</section>
+
+				<section>
+					<p>Jinja templates are baked to flat HTML.</p>
+				</section>
+
+				<section>
+					<p>All CSS and JS files are minified and compressed into one file.</p>
+				</section>
+
+				<section>
+					<p>All assets are gzipped.</p>
+				</section>
+
+				<section>
+					<p>Everything is pushed to s3.</p>
+				</section>
+
+				<section>
+					<h1>We&rsquo;re live!</h1>
+					<p><a href="http://apps.npr.org/nicar-rulez" target="_blank">apps.npr.org/nicar-rules</a></p>
+				</section>
+
 
 			</div>
 
@@ -159,8 +233,11 @@
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				width: 1024,
+				height: 700,
+
 				controls: false,
-				progress: true,
+				progress: false,
 				history: true,
 				center: true,
 
@@ -178,6 +255,7 @@
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
