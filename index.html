@@ -87,7 +87,7 @@
 
 					</style>
 
-					<table id="donors" style="float: left;">
+					<table id="donors" style="float: left; width: 300px">
 						<caption>Donors</caption>
 							<tbody>
 							<tr class="hide">
@@ -113,7 +113,7 @@
 						</tbody>
 					</table>
 
-					<table id="social" style="float: right;">
+					<table id="social" style="float: right; width: 300px">
 						<caption>Social Media</caption>
 						<tbody>
 							<tr class="hide">
@@ -140,16 +140,29 @@
 					</table>
 
 					<script>
-						var counter = $('#donors > tbody  > tr').children().length;
 
-						setInterval( function() { 
-							$('#donors > tbody  > tr:eq(' + counter + ')').removeClass("hide");
-							console.log(counter);
-						}, 500, function() {
-							return (counter > 10) ? true : false;
-						}, function() {
-							$('#counterDisplay').html("setInterval was stopped due to breakCondition!");
-						});
+						var donors = $('#donors > tbody').children('tr').length;
+						donorCounter = 0;
+						var donorAnimate = setInterval( function() { 
+							$('#donors > tbody  > tr:eq(' + donorCounter + ')').removeClass("hide");
+							console.log(donorCounter);
+							donorCounter++;
+							if (donorCounter >= donors) {
+								clearInterval(donorAnimate);
+							}
+						}, 500);
+
+						var social = $('#social > tbody').children('tr').length;
+						socialCounter = 0;
+						var socialAnimate = setInterval( function() { 
+							$('#social > tbody  > tr:eq(' + socialCounter + ')').removeClass("hide");
+							console.log(socialCounter);
+							socialCounter++;
+							if (socialCounter >= social) {
+								clearInterval(socialAnimate);
+							}
+						}, 500);
+
 
 					</script>
 
