@@ -15,7 +15,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
     <script>
         WebFont.load({
              custom: {
@@ -59,30 +59,106 @@
 			<div class="slides">
 				<section>
 					<p><img src="img/logo.svg" height="400px"></img></p>
-					<h2>Alpaca</h2>
+					<h2>Alpaca.io</h2>
 				</section>
 
-				<section data-state="title-slide">
-					<h1 class="title-slide-text">A brief overview</h1>
+				<!--data-state="title-slide"-->
+				<!--class="title-slide-text"-->
+				<section>
+					<h2>Political campaigns care about two things.</h2>
+				</section>
+
+				<section data-state="title-slide" data-background="#ff3300">
+					<h1 class="title-slide-text">Votes</h1>
+				</section>
+
+				<section data-state="title-slide" data-background="#3366cc">
+					<h1 class="title-slide-text">Money</h1>
 				</section>
 
 				<section>
-					<p>An opinionated project template for client-side apps.</p>
-				</section>
 
-				<section>
-					<p>We use it for <strong>everything</strong> we do.</p>
-				</section>
+					<style>
 
-				<section>
-					<p>Thus, the app template is highly customizable.</p>
+						.hide {
+							display: none;
+						}
+
+					</style>
+
+					<table id="donors" style="float: left;">
+						<caption>Donors</caption>
+							<tbody>
+							<tr class="hide">
+								<td>asdf</td>
+								<td>asdf</td>
+								<td>asdf</td>
+							</tr>
+							<tr class="hide">
+								<td>asdf</td>
+								<td>asdf</td>
+								<td>asdf</td>
+							</tr>
+							<tr class="hide">
+								<td>asdf</td>
+								<td>asdf</td>
+								<td>asdf</td>
+							</tr>
+							<tr class="hide">
+								<td>asdf</td>
+								<td>asdf</td>
+								<td>asdf</td>
+							</tr> 
+						</tbody>
+					</table>
+
+					<table id="social" style="float: right;">
+						<caption>Social Media</caption>
+						<tbody>
+							<tr class="hide">
+								<td>asdf</td>
+								<td>asdf</td>
+								<td>asdf</td>
+							</tr>
+							<tr class="hide">
+								<td>asdf</td>
+								<td>asdf</td>
+								<td>asdf</td>
+							</tr>
+							<tr class="hide">
+								<td>asdf</td>
+								<td>asdf</td>
+								<td>asdf</td>
+							</tr>
+							<tr class="hide">
+								<td>asdf</td>
+								<td>asdf</td>
+								<td>asdf</td>
+							</tr> 
+						</tbody>
+					</table>
+
+					<script>
+						var counter = $('#donors > tbody  > tr').children().length;
+
+						setInterval( function() { 
+							$('#donors > tbody  > tr:eq(' + counter + ')').removeClass("hide");
+							console.log(counter);
+						}, 500, function() {
+							return (counter > 10) ? true : false;
+						}, function() {
+							$('#counterDisplay').html("setInterval was stopped due to breakCondition!");
+						});
+
+					</script>
+
 				</section>
 
 				<section data-state="title-slide">
 					<h1 class="title-slide-text">Things we made</h1>
 				</section>
 
-				<section data-background="img/tshirt.png" data-background-size="1200px" data-transition='none' data-background-transition='none'>
+<!-- 				<section data-background="img/tshirt.png" data-background-size="1200px" data-transition='none' data-background-transition='none'>
 				</section>
 
 				<section data-background="img/wolves.png" data-background-size="1200px" data-transition='none' data-background-transition='none'>
@@ -92,7 +168,7 @@
 				</section>
 
 				<section data-background="img/ad.png" data-background-size="1200px" data-transition='none' data-background-transition='none'>
-				</section>
+				</section> -->
 
 				<section data-state="title-slide">
 					<h1 class="title-slide-text">The guts</h1>
@@ -129,22 +205,22 @@
 
 				<section>
 					<h2>Cloning</h2>
-					<img class="freezeframe" src="img/clone.gif" />
+					<!-- <img class="freezeframe" src="img/clone.gif" /> -->
 				</section>
 
 				<section>
 					<h2>Bootstrapping</h2>
-					<img class="freezeframe" src="img/bootstrap.gif" />
+					<!-- <img class="freezeframe" src="img/bootstrap.gif" /> -->
 				</section>
 
 				<section>
 					<h2>Default GitHub Issues</h2>
-					<img class="freezeframe" src="img/issues.gif" />
+					<!-- <img class="freezeframe" src="img/issues.gif" /> -->
 				</section>
 
 				<section>
 					<h2>Initial Project Template</h2>
-					<img class="freezeframe" src="img/app.py.gif" />
+					<!-- <img class="freezeframe" src="img/app.py.gif" /> -->
 				</section>
 
 				<section>
@@ -157,12 +233,12 @@
 
 				<section>
 					<h2>Publish spreadsheet</h2>
-					<img class="freezeframe" src="img/spreadsheet_init.gif" />
+					<!-- <img class="freezeframe" src="img/spreadsheet_init.gif" /> -->
 				</section>
 
 				<section>
 					<h2>Configure app</h2>
-					<img class="freezeframe" src="img/spreadsheet_config.gif" />
+					<!-- <img class="freezeframe" src="img/spreadsheet_config.gif" /> -->
 				</section>
 
 				<section>
@@ -171,7 +247,7 @@
 
 				<section>
 					<h2>Update copy</h2>
-					<img class="freezeframe" src="img/update_copy.gif" />
+					<!-- <img class="freezeframe" src="img/update_copy.gif" /> -->
 				</section>
 
 				<section>
@@ -184,7 +260,7 @@
 
 				<section>
 					<h2>Cross your fingers</h2>
-					<img class="freezeframe" src="img/deploy.gif" />
+					<!-- <img class="freezeframe" src="img/deploy.gif" /> -->
 				</section>
 
 				<section>

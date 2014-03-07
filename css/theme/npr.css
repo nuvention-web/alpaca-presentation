@@ -172,8 +172,10 @@ body {
   .reveal p.small {
     font-size: 24px; }
 
-.title-slide .reveal .state-background {
-  background-color: #3366cc; }
+/*.title-slide .reveal .state-background {
+  background-color: #3366cc; 
+}*/
+
 
 .title-slide .reveal {
   border: none;
