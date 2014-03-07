@@ -32,20 +32,6 @@
 	         });
 	    </script>
 
-		<style>
-
-			.hide { display: none; }
-			.reveal .table-sm > * { font-size: 24px; }
-			.reveal .table-xs > * { font-size: 20px; }
-			.donors-column, .social-column { height: 450px; }
-			.tableWrapper { height: 400px; }
-			.reveal i {
-				font-family: FontAwesome;
-				font-style: normal;
-			}
-
-		</style>	    
-
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/npr.css" id="theme">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -71,6 +57,20 @@
 
 	<body>
 
+		<style>
+
+			.hide { display: none; }
+			.reveal .table-sm > * { font-size: 24px; }
+			.reveal .table-xs > * { font-size: 20px; }
+			.donors-column, .social-column { height: 450px; }
+			.tableWrapper { height: 400px; }
+			.reveal i {
+				font-family: FontAwesome;
+				font-style: normal;
+			}
+
+		</style>		
+
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
@@ -94,7 +94,7 @@
 					<h1 class="title-slide-text">Money</h1>
 				</section>
 
-				<section>
+				<section class="center">
 					<p><img src="img/wireframeCol.png"></img></p>
 					<hr>
 					<p> A Donor and Voter Lead Generation Tool </p>
@@ -116,12 +116,13 @@
 				</section>
 
 				<section>
-					<h2>Beachhead Market</h2>
+					<h3>Beachhead Market</h3>
+					<hr>
 					<br>
-					<h3 class='fragment'>Over $6 billion in 2012 Elections</h3>
+					<h4 class='fragment'>Over $6 billion in 2012 Elections</h4>
 					<hr class='fragment'>
 					<div class='fragment' style='float:left;'>
-						<h4 style='text-align: left;'>Presidential Campaign</h4>
+						<h5 style='text-align: left;'>Presidential Campaign</h5>
 						<p style='font-size:80%; text-align: left;'>$2.3 billion spent</p> 
 						<p style='font-size:80%; text-align: left;'>$722 million went to media</p>
 						<!-- <p style='font-size:80%; text-align: left;'>Obama put $33 million into tech</p> -->
@@ -136,17 +137,17 @@
 				 <section>
 					<h3>Customers</h3>
 					<hr>
-					<div class='fragment' style='width: 33%; float:left; padding:15px;'>
-						<h4 style='text-align: left;'>Political Consultants</h4>
-						<p style='font-size:80%; text-align: left;'>Get votes</p>
+					<div class='fragment' style='width: 100%; float:left; padding:2.5%; padding-top:5%;'>
+						<h4 style='text-align: left; float: left;'>Political Consultants</h4>
+						<p style='font-size:80%; text-align: left; float: right;'>Get votes</p>
 					</div>
-					<div class='fragment' style='width: 33%; float:left; padding:15px;'>
-						<h4 style='text-align: left;'>Fundraising Directors</h4>
-						<p style='font-size:80%; text-align: left;'>Get money</p>
+					<div class='fragment' style='width: 100%; float:left; padding:2.5%; padding-top:5%;'>
+						<h4 style='text-align: left; float: left;'>Fundraising Directors</h4>
+						<p style='font-size:80%; text-align: left; float:right;'>Get money</p>
 					</div>
-					<div class='fragment' style='width: 33%; float:left; padding:15px;'>
-						<h4 style='text-align: left;'>Pollsters</h4>
-						<p style='font-size:80%; text-align: left;'><br>Get data</p>
+					<div class='fragment' style='width: 100%; float:left; padding:2.5%; padding-top:5%;'>
+						<h4 style='text-align: left; float: left;'>Pollsters</h4>
+						<p style='font-size:80%; text-align: left; float:right;'>Get data</p>
 					</div>
 				</section>
 
@@ -177,10 +178,13 @@
 				<section>
 					<h3>Pricing</h3>
 					<hr>
+					<br>
+					<p class='fragment' style='padding-bottom:5%; text-align: left;'>Scaling Subscription Base Costs</p>
+					<p class='fragment' style='padding-bottom:5%; text-align: left;'>Pay Per Donor Lead</p>
 				</section>
 
-				<section>
-					<p>impact</p>
+				<section class="center" data-state="title-slide" data-background="#ff3300">
+					<h1 class="title-slide-text">So how does it work?</h1>
 				</section>
 
 
@@ -419,8 +423,23 @@
 
 				</section>
 
-				<section>
-					<i class="fa fa-user"></i>
+				<section class="center">
+
+					<div style="position: relative; top: 50px; display: block; z-index: 3;">
+						<i class="fa fa-user fragment" data-fragment-index="1" style="font-size: 10em; color: black;"></i>
+					</div>
+
+					<div style="position: relative; top: -125px; left: -25px; display: inline; z-index: 0;">
+						<i class="fa fa-user fragment" data-fragment-index="3" style="font-size: 5em; position: relative; top: -20px; left: 80px; z-index: 1; color: pink; "></i>
+						<i class="fa fa-user fragment" data-fragment-index="2" style="font-size: 8em; position: relative; color: yellow; z-index: 3;"></i>
+					</div>
+
+					<div style="position: relative; top: -125px; left: 25px; display: inline; z-index: 1;">
+						<i class="fa fa-user fragment" data-fragment-index="2" style="font-size: 8em; position: relative; color: green; z-index: 3;"></i>
+						<i class="fa fa-user fragment" data-fragment-index="3" style="font-size: 5em; position: relative; top: -20px; left: -80px; z-index: 1; color: purple; "></i>
+					</div>
+
+					<!-- orange -->
 				</section>
 
 				<section>
@@ -442,6 +461,7 @@
 				
 				<section class="center">
 					<h3>Team</h3>
+					<hr>
 					<div class='row' id='devTeam'>
 						<div class='col-sm-3'>
 							<span class='team'>Daniel <br>Thirman</span>
@@ -502,9 +522,11 @@
 
 				<section>
 					<h3 style='weight: bold;'> Next Steps</h3>
-					<p class='fragment'>Complete Marketable MVP</p>
-					<p class='fragment'>Validate Accuracy in Case Study</p>
-					<p class='fragment'>First Test Client Campaign</p>
+					<hr>
+					<br>
+					<p class='fragment' style='padding-bottom:5%;'>Complete Marketable MVP</p>
+					<p class='fragment' style='padding-bottom:5%;'>Validate Accuracy in Case Study</p>
+					<p class='fragment' style='padding-bottom:5%;'>First Test Client Campaign</p>
 				</section>
 
 				<section>
