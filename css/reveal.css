@@ -468,7 +468,7 @@ body {
  * PROGRESS BAR
  *********************************************/
 
-.reveal .progress {
+/*.reveal .progress {
 	position: fixed;
 	display: none;
 	height: 3px;
@@ -495,7 +495,7 @@ body {
 		    -ms-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
 		     -o-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
 		        transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-	}
+	}*/
 
 /*********************************************
  * SLIDE NUMBER
