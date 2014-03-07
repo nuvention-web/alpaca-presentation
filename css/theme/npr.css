@@ -183,3 +183,15 @@ body {
   -webkit-transition: border 500ms ease-out;
   -moz-transition: border 500ms ease-out;
   -o-transition: border 500ms ease-out; }
+
+.reveal .table-sm > * {
+  font-size: 24px;
+}
+
+.reveal .table-xs > * {
+  font-size: 15px;
+}
+
+.reveal section.topalign {
+  top: none ;
+}
