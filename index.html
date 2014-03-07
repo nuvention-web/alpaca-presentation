@@ -376,6 +376,21 @@
 
 						function resolveAnimation(interval) {
 							$(".resolve").removeClass("hide");
+							return interval;
+						}
+
+						function hideOtherUsersAnimation(interval) {
+							$(".resolve").fadeOut();
+							$("#donors > tbody > tr:not(:first)").fadeOut();
+							$("#social > tbody > tr:not(:first)").fadeOut();
+							$(".progress.donor").fadeOut();
+							$(".progress.social").fadeOut();
+							return interval;
+						}
+
+						function showOutput(interval) {
+							$(".social-column .tableWrapper").append("<img src='img/output.gif'/>");
+							return interval;
 						}
 
 						function animateSlide() {
@@ -384,18 +399,21 @@
 							var timeDonorCompletion = donorAnimation(interval, intervals);
 
 							var delaySocialAnimation = setTimeout(function() { 
-
 								var timeSocialCompletion = socialAnimation(interval);
-
-								console.log(timeDonorCompletion + timeSocialCompletion);
-
 								var delayResolveAnimation = setTimeout(function() { 
-									resolveAnimation(interval)
+									var timeResolveCompletion = resolveAnimation(interval);
+									var timeMakingLines = 2000;
+									var delayHideOtherUsersAnimation = setTimeout(function() { 
+										var timeHidingOtherUsersAnimation = hideOtherUsersAnimation(interval);
+										var delayShowOutput = setTimeout(function() {
+											var timeShowOutput = showOutput(interval);
+										}, timeHidingOtherUsersAnimation);
+										timeouts.push(delayShowOutput);
+
+									}, timeResolveCompletion + timeMakingLines);
+									timeouts.push(delayHideOtherUsersAnimation);
 								}, timeSocialCompletion);
-
 								timeouts.push(delayResolveAnimation);
-
-
 							}, timeDonorCompletion);
 							timeouts.push(delaySocialAnimation);
 
