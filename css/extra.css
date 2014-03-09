@@ -29,3 +29,9 @@
 	/*font-weight: normal !important;*/
 	/*padding-left: 13.5% !important;*/
 }
+
+.infoSmGlyph{
+	width: 45px;
+	height: 45px;
+	position: absolute;
+}
