@@ -1,0 +1,21 @@
+.hiddenRow {
+    padding: 0 !important;
+    position: relative;
+}
+
+.leftAccordion {
+	float: left;
+	width: 50%;
+	padding-left: 3% !important;
+}
+
+.rightAccordion {
+	float: right;
+	width: 50%;
+	/*padding-right: 3% !important;*/
+}
+
+.infoRow {
+	display: block;
+	padding: 1% 0% 1% 0% !important;
+}
