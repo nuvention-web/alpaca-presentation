@@ -40,6 +40,7 @@
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/extra.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
@@ -68,16 +69,19 @@
 				font-family: FontAwesome;
 				font-style: normal;
 			}
+			.reveal .slides section .fragment.fragment-animate {
+				opacity: 1;
+			}
 
 		</style>		
 
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section class="center">
+			<div class="slides" >
+				<section data-transition='fade' class="center">
 					<p><img src="img/logo.svg" height="400px"></img></p>
-					<h2>Alpaca</h2>
+					<h2>Alpaca.io</h2>
 				</section>
 
 				<!--data-state="title-slide"-->
@@ -95,7 +99,7 @@
 				</section>
 
 				<section class="center">
-					<p><img src="img/wireframeCol.png"></img></p>
+					<img src='img/htmlUI.png' style='width:90%; height:90%;'>
 					<hr>
 					<p> A Donor and Voter Lead Generation Tool </p>
 				</section>
@@ -113,12 +117,6 @@
 						<img src='img/headlines/nytimes.jpg'>
 						<p>- The New York Times</p>
 					</div>
-				</section>
-
-				<section>
-					<p>Losers slide!</p>
-					<p>Highlight that campaigns that haven't used this have lost, and have failed to activate the younger vote.</p>
-					<p>Also highlight the challenges of employing Obama's technical services at a lower level.</p>
 				</section>
 
 				<section>
@@ -160,16 +158,22 @@
 				<section>
 					<h3>Competitors</h3>
 					<hr>
-					<div class='fragment' style='float:left; width:45%;'>
-						<h4 style='text-align: left;'>NGPVan</h4>
-						<p style='font-size:80%; text-align: left;'>Leading technology provider to Democratic campaigns</p>
-					</div>
-					<div class='fragment' style='float:right; width:45%;'>
-						<h4 style='text-align: left;'>Nationbuilder</h4>
-						<p style='font-size:80%; text-align: left;'>Online community organizing system</p>
+					<div class='fragment'>
+						<div style='float:left; width:33%;'>
+							<h4 style='text-align: center;'>NGPVan</h4>
+							<p style='font-size:60%; text-align: center;'>Leading technology provider to Democratic campaigns</p>
+						</div>
+						<div style='float: left; width:33%;'>
+							<h4 style='text-align: center;'>Nationbuilder</h4>
+							<p style='font-size:60%; text-align: center;'>Online community organizing system</p>
+						</div>
+						<div style='float: left; width: 33%;'>
+							<h4 style='text-align: center;'>Aristotle</h4>
+							<p style='font-size:60%; text-align: center;'>Political Technology</p>
+						</div>
 					</div>
 
-					<div class='fragment' style='float:bottom; margin-top:280px;'>
+					<div class='fragment' style='float:left; margin-top:100px;'>
 						<table width='100%;'>
 							<tr><td style='text-align: center; padding:10px;'>Limited NLP/ML</td>
 								<td style='text-align: center; padding:10px;'>Politically Aligned</td>
@@ -195,14 +199,14 @@
 
 
 				<!--Social Media Slide Viz -->
-				<section>
+				<section class='center'>
 
 					<div class="animateSlideWrapper">
 
 						<div class="animateSlide">
 
-							<div class='row'>
-								<div class="donors-column col-sm-5">
+							<div class='row donor-social-row'>
+								<div class="donors-column col-sm-5 fragment fragment-animate" data-fragment-index='1' data-fragment-fn='donorAnimation'>
 									<div class="tableWrapper">
 										<table id="donors" class="table table-xs">
 											<caption><h3>Donor Records</h3></caption>
@@ -215,7 +219,7 @@
 												<tr class="hide">
 													<td>Alan Ritter</td>
 													<!-- <td>asdf</td> -->
-													<td>Pittburgh, PA</td>
+													<td>Pittsburgh, PA</td>
 												</tr>
 												<tr class="hide">
 													<td>John Reeves</td>
@@ -251,14 +255,14 @@
 										</table>
 									</div>
 
-									<div class="progress progress-striped active donor">
+									<div class="progress progress-striped active donor hide">
 									  <div class="progress-bar donor" role="progressbar" style="width: 0%;">
 									    <span class="sr-only">60% Complete</span>
 									  </div>
 									</div>
 								</div> <!-- end donor-column -->
 
-								<div class="col-sm-2" style="height: 425px;">
+								<div class="col-sm-2 fragment fragment-animate social-donor-spacer" style="height: 425px;" data-fragment-index='3' data-fragment-fn='resolveAnimation'>
 									<div class="resolve hide">
 										<i class="fa fa-user"></i>
 										<img src="img/loading.gif" style="height: 25px; margin-top: 50%"></img>
@@ -266,7 +270,7 @@
 									</div>
 								</div>
 
-								<div class="social-column col-sm-5">
+								<div class="social-column col-sm-5 fragment fragment-animate" data-fragment-index='2' data-fragment-fn='socialAnimation'>
 									<div class="tableWrapper">
 										<table id="social" class="table table-xs">
 											<caption><h3>Online Social Networks</h3></caption>
@@ -318,14 +322,78 @@
 										</table>
 									</div>
 
-									<div class="progress progress-striped active social">
+									<div class="progress progress-striped active social hide">
 									  <div class="progress-bar social" role="progressbar" style="width: 0%;">
 									    <span class="sr-only">60% Complete</span>
 									  </div>
 									</div>
 								</div> <!-- end social-column -->
+								<div class="fragment hide" data-fragment-index='4' data-fragment-fn='hideOtherUsersAnimation'></div>
+								<!-- <div class="fragment hide" data-fragment-index='5' data-fragment-fn='showOutput'></div> -->
+
 
 							</div> <!-- end row -->
+							<div class='row data-resolve-row fragment fragment-animate hide' data-fragment-index='5' data-fragment-fn='showOutput'>
+								<h4>Alan Ritter</h4>
+								<hr>
+								<div class='col-sm-4'>
+									<table class='table table-xs' style='margin:20px;'>
+										<caption><h3>Metadata</h3></caption>
+									    <colgroup>
+									       <col span="1" style="width: 50%;">
+									       <col span="1" style="width: 50%;">
+									    </colgroup>
+									    <tbody>
+											<tr><td style='font-weight:bold;'>Gender</td><td><div class='hide resolved-data-elem-1'> M </div></td></tr>
+											<tr><td style='font-weight:bold;'>Age</td><td><div class='hide resolved-data-elem-2'> 99 </div></td></tr>
+											<tr><td style='font-weight:bold;'>Education</td><td><div class='hide resolved-data-elem-3'> Carnegie Mellon </div></td></tr>
+											<tr><td style='font-weight:bold;'>Profession</td><td><div class='hide resolved-data-elem-4'> Research </div></td></tr>
+											<tr><td style='font-weight:bold;'>Klout</td><td><div class='hide resolved-data-elem-5'> 67 </div></td></tr>
+											<tr><td style='font-weight:bold;'># Likes</td><td><div class='hide resolved-data-elem-6'> 218 </div></td></tr>
+											<tr><td style='font-weight:bold;'># Tweets</td><td><div class='hide resolved-data-elem-7'> 1024 </div></td></tr>
+										</tbody>
+									</table>
+								</div>
+								<div class='col-sm-8'>
+									<img id='output-gif' src='img/output.gif' style='width:90%; padding:10px;'>
+									<div style='position:absolute; top:150px; left:80px;'>
+										<i id='person-resolve-glyph' class="fa fa-user fragment fragment-animate hide" data-fragment-index="6" data-fragment-fn='hideOutput' style="font-size: 10em; color: black;"></i>
+									</div>
+								</div>
+							</div>
+
+							<div class='row fragment fragment-animate hide cluster-people-row' data-fragment-index='7' data-fragment-fn='animateClustering'>
+								<div>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+								</div><br>
+								<div>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+								</div><br>
+								<div>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+									<i class="fa fa-user cluster-people-elem" style="position: relative; font-size: 2em; color: black;"></i>
+								</div>
+							</div>
 						</div>
 					</div>
 
@@ -338,96 +406,207 @@
 						animateClone = $(".animateSlideWrapper").clone().html();
 
 						function donorAnimation(interval) {
-							var donors = $('#donors > tbody').children('tr').length;
-							donorCounter = 0;
-							var donorAnimate = setInterval( function() { 
-								$('#donors > tbody  > tr:eq(' + donorCounter + ')').removeClass("hide");
+							return {
+								forward: function () {
+									var donors = $('#donors > tbody').children('tr').length;
+									donorCounter = 0;
+									$(".progress.donor.hide").removeClass('hide');
+									var donorAnimate = setInterval( function() { 
+										$('#donors > tbody  > tr:eq(' + donorCounter + ')').removeClass("hide");
 
-								$(".progress-bar.donor").css("width", (donorCounter+1)/donors * 100 + "%");
-								// console.log((donorCounter+1)/donors * 100);
+										$(".progress-bar.donor").css("width", (donorCounter+1)/donors * 100 + "%");
+										// console.log((donorCounter+1)/donors * 100);
 
-								donorCounter++;
+										donorCounter++;
 
-								if (donorCounter >= donors) {
-									clearInterval(donorAnimate);
-									$(".progress.donor").removeClass("active");
+										if (donorCounter >= donors) {
+											clearInterval(donorAnimate);
+											$(".progress.donor").removeClass("active");
+										}
+									}, interval);
+
+									intervals.push(donorAnimate);
+								},
+								reverse: function () {
+									console.log("reverse donor animation");
 								}
-							}, interval);
+							}
 
-							intervals.push(donorAnimate);
-
-							return interval * donors;
 						}
 
 						function socialAnimation(interval) {
-							var social = $('#social > tbody').children('tr').length;
-							socialCounter = 0;
-							var socialAnimate = setInterval( function() { 
-								$('#social > tbody  > tr:eq(' + socialCounter + ')').removeClass("hide");
-
-								$(".progress-bar.social").css("width", (socialCounter+1)/social * 100 + "%");
-								// console.log((socialCounter+1)/social * 100);
-								socialCounter++;
-
-								if (socialCounter >= social) {
-									clearInterval(socialAnimate);
-									$(".progress.social").removeClass("active");
+							return {
+								forward: function () {
+									var social = $('#social > tbody').children('tr').length;
+									socialCounter = 0;
+									$(".progress.social.hide").removeClass('hide');
+									var socialAnimate = setInterval( function() { 
+										$('#social > tbody  > tr:eq(' + socialCounter + ')').removeClass("hide");
+										$(".progress-bar.social").css("width", (socialCounter+1)/social * 100 + "%");
+										socialCounter++;
+										if (socialCounter >= social) {
+											clearInterval(socialAnimate);
+											$(".progress.social").removeClass("active");
+										}
+									}, interval);
+									intervals.push(socialAnimate);
+								},
+								reverse: function () {
+									console.log("reverse social animation");
 								}
-							}, interval);
-							
-							intervals.push(socialAnimate);
+							}
 
-							return interval * social;
+
 						}
 
 						function resolveAnimation(interval) {
-							$(".resolve").removeClass("hide");
-							return interval;
+							return {
+								forward: function () {
+									$(".resolve").removeClass("hide");
+								},
+								reverse: function () {
+									console.log("reverse resolve animation");
+								}
+							}
+
 						}
 
 						function hideOtherUsersAnimation(interval) {
-							$(".resolve").fadeOut();
-							$("#donors > tbody > tr:not(:first)").fadeOut();
-							$("#social > tbody > tr:not(:first)").fadeOut();
-							$(".progress.donor").fadeOut();
-							$(".progress.social").fadeOut();
-							return interval;
+							return {
+								forward: function () {
+									$(".resolve").fadeOut();
+									$("#donors > tbody > tr:not(:first)").fadeOut();
+									$("#social > tbody > tr:not(:first)").fadeOut();
+									$(".progress.donor").fadeOut();
+									$(".progress.social").fadeOut();
+								},
+								reverse: function () {
+									console.log("reverse hide other users animation");
+								}
+							}
+
 						}
 
 						function showOutput(interval) {
-							$(".social-column .tableWrapper").append("<img src='img/output.gif'/>");
-							return interval;
+							return {
+								forward: function () {
+									$(".donor-social-row").addClass('hide');
+									$(".data-resolve-row").removeClass('hide');
+									timeouts.push(setTimeout(function() { $('.resolved-data-elem-1').removeClass('hide'); }, 1750));
+									timeouts.push(setTimeout(function() { $('.resolved-data-elem-2').removeClass('hide'); }, 2500));
+									timeouts.push(setTimeout(function() { $('.resolved-data-elem-3').removeClass('hide'); }, 3250));
+									timeouts.push(setTimeout(function() { $('.resolved-data-elem-4').removeClass('hide'); }, 4000));
+									timeouts.push(setTimeout(function() { $('.resolved-data-elem-5').removeClass('hide'); }, 4750));
+									timeouts.push(setTimeout(function() { $('.resolved-data-elem-6').removeClass('hide'); }, 5500));
+									timeouts.push(setTimeout(function() { $('.resolved-data-elem-7').removeClass('hide'); }, 6250));
+								},
+								reverse: function () {
+									console.log("reverse show output");
+								}
+							}
 						}
 
-						function animateSlide() {
-							var interval = 750;	
-
-							var timeDonorCompletion = donorAnimation(interval, intervals);
-
-							var delaySocialAnimation = setTimeout(function() { 
-								var timeSocialCompletion = socialAnimation(interval);
-								var delayResolveAnimation = setTimeout(function() { 
-									var timeResolveCompletion = resolveAnimation(interval);
-									var timeMakingLines = 2000;
-									var delayHideOtherUsersAnimation = setTimeout(function() { 
-										var timeHidingOtherUsersAnimation = hideOtherUsersAnimation(interval);
-										var delayShowOutput = setTimeout(function() {
-											var timeShowOutput = showOutput(interval);
-										}, timeHidingOtherUsersAnimation);
-										timeouts.push(delayShowOutput);
-
-									}, timeResolveCompletion + timeMakingLines);
-									timeouts.push(delayHideOtherUsersAnimation);
-								}, timeSocialCompletion);
-								timeouts.push(delayResolveAnimation);
-							}, timeDonorCompletion);
-							timeouts.push(delaySocialAnimation);
-
-							
+						function animateClustering(interval) {
+							return {
+								forward: function () {
+									$(".data-resolve-row").addClass('hide');
+									$(".cluster-people-row").removeClass('hide');
+									colors = ['red','blue','green','orange'];
+									clusterOffsets = [[20,-200],[20,200],[],[]];
+									$(".cluster-people-elem").each(function() {
+										rand = Math.floor(Math.random()*4);
+										$(this).css('color',colors[rand]);
+									});
+									clusterPeople(interval).forward();
+								},
+								reverse: function () {
+									console.log("reverse animate clustering");
+									clusterPeople(interval).reverse();
+								}
+							}
 						}
 
-						function resetSlide() {
+						function hideOutput(interval) {
+							return {
+								forward: function () {
+									$("#output-gif").addClass('hide');
+									$("#person-resolve-glyph").removeClass('hide');
+								},
+								reverse: function () {
+									console.log("reverse hide output");
+								}
+							}
+						}
 
+						function clusterPeople(interval) {
+
+							interval = 350;
+
+							return {
+								forward: function () {
+									var people = $('.cluster-people-elem').length
+									var peopleCounter = 0;
+									var blueManGroup = [];
+									var greenManGroup = [];
+									var redManGroup = [];
+									var orangeManGroup = [];
+
+									var peopleAnimate = setInterval( function() { 
+										console.log(peopleCounter);
+
+										person = $('.cluster-people-elem:eq(' + peopleCounter + ')');
+
+										personOffset = person.offset();
+
+										personWidth = 63;
+										windowWidth = $(window).width();
+										windowHeight = $(window).height();
+
+										borderOffset = 100;
+
+										if (person.css("color") == "rgb(0, 0, 255)") { // blue
+											person.animate({ 
+												top:  -personOffset.top + borderOffset, 
+												left: -personOffset.left + blueManGroup.length * personWidth + borderOffset}
+											, interval);
+											blueManGroup.push(person);
+										}
+										else if (person.css("color") == "rgb(0, 128, 0)") { // green
+											person.animate({ 
+												top:  -personOffset.top + borderOffset, 
+												left: -personOffset.left + windowWidth + personWidth - greenManGroup.length * personWidth - borderOffset}
+											, interval);
+											greenManGroup.push(person);
+										}
+										else if (person.css("color") == "rgb(255, 0, 0)") { // red
+											person.animate({
+												top:  -personOffset.top + windowHeight - borderOffset, 
+												left: -personOffset.left + redManGroup.length * personWidth + borderOffset}
+											, interval);
+											redManGroup.push(person);
+										}
+										else if (person.css("color") == "rgb(255, 165, 0)") { // orange
+											person.animate({ 
+												top:  -personOffset.top + windowHeight - borderOffset, 
+												left: -personOffset.left + windowWidth + personWidth - orangeManGroup.length * personWidth - borderOffset}
+											, interval);
+											orangeManGroup.push(person);
+										}
+
+										peopleCounter++;
+										if (peopleCounter >= people) {
+											clearInterval(peopleAnimate);
+										}
+									}, interval);
+									intervals.push(peopleAnimate);
+								},
+								reverse: function () {
+									console.log("reverse social animation");
+								}
+							}
+						}
+
+						function stopAnimation() {
 							// Cancel all pending intervals
 							for (var i in intervals) {
 							   window.clearInterval(intervals[i]);
@@ -436,7 +615,12 @@
 							// Cancel all pending timeouts
 							for (var i in timeouts) {
 							   window.clearTimeout(timeouts[i]);
-							}
+							}							
+						}
+
+						function resetSlide() {
+
+							stopAnimation();
 
 							$(".animateSlideWrapper > .animateSlide").remove();
 							$(".animateSlideWrapper").append(animateClone);
@@ -513,11 +697,381 @@
 <!-- 				<section>
 					<p>A section taking a new (different colored) user, and placing him in our user map</p>
 				</section>
+
  -->
 
-				<section class="center" data-background="img/wireframeExp.png" data-background-size="1200px" data-transition='none' data-background-transition='none'>
-				
-				</section>
+				 <section >
+				 	<div class="container" style="font-size: 50%;">
+				 		<table class="table table-condensed table-striped table-hover" style="border-collapse:collapse;">
+				 			<thead>
+				 				<tr>
+				 					<th class='col-md-2'>Donor Score</th>
+				 					<th class='col-md-6' style=''>Name</th>
+				 					<th class='col-md-4' style='text-align:right'>Email</th>
+				 				</tr>
+				 			</thead>
+				 			<tbody>
+				 				<tr></tr>
+				 				<tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+				 					<td class='col-md-2'>87</td>
+				 					<td class='col-md-6' style=''>Carey Adams</td>
+				 					<td class='col-md-4' style='text-align:right'>Cadams@gmail.com</td>
+				 				</tr>				 			
+				 				<tr >
+				 					<td colspan="6" class="hiddenRow">
+				 						<div class="accordian-body collapse" id="demo1"> 
+				 							<div class='leftAccordion'>
+				 								<span class='infoRow' style='padding-top: 14px !important;'>Location:
+				 									<div class='infoCont' style='padding-left: 13.5%;'> 984 N SHORE DR, Pewaukee, WI. 53072</div>
+				 								</span>
+				 								<span class='infoRow' >Education:
+				 									<div class='infoCont' style='padding-left: 11%;'> Northeastern University</div>
+				 								</span>
+				 								<span class='infoRow'>Age:
+				 									<div class='infoCont' style='padding-left: 21%;'> 56</div>
+				 								</span>
+				 								<span class='infoRow'>Relationship:
+				 									<div class='infoCont' style='padding-left: 7.5%; width: 50%'> Married</div>
+				 								</span>
+				 								<span class='infoRow'>Profession: 
+				 									<div class='infoCont' style='padding-left: 11%'> LAN Technician</div>
+				 								</span>
+				 							</div>
+				 							<div class='separator'></div>
+				 							<div class='rightAccordion'>
+				 								<span class='infoRow' style='padding: 20px 0 5px 0 !important; position: relative;'>
+				 									<img class='infoSmGlyph'src='img/logos/facebook-logo.png' style=''>
+				 									<img class='infoSmGlyph'src='img/logos/twitter-logo.png' style='left: 15%;'>
+				 									<img class='infoSmGlyph'src='img/logos/linkedin-logo.png' style='left: 30%;'>
+				 									<div style='width:45px; height: 45px;'></div>
+				 								</span>
+				 								<!-- <hr> -->
+				 								<span class='infoRow'>Bio:
+													<div class='infoCont' style='padding-left: 10%;'> Smoker, Joker, Midnight Smoker.</div>
+				 								</span>
+				 								<span class='infoRow'>Klout:
+													<div class='infoCont' style='padding-left: 7%;'> 46 </div>
+				 								</span>
+				 								<span class='infoRow'>Likes:
+													<div class='infoCont' style='padding-left: 7.5%;'> Music, Film, Food, See more...</div>
+				 								</span>
+				 								<span class='infoRow'>Talking<br>About:
+													<div class='infoCont' style='padding-left: 5.5%;'> Crimea, Oscars, Daylight Savings, Beyonce</div>
+				 								</span>
+				 							</div>
+				 						</div> 
+				 					</td>
+				 				</tr>
+				 				<tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+				 					<td class='col-md-2'>85</td>
+				 					<td class='col-md-6' style=''>Eric Schulz</td>
+				 					<td class='col-md-4' style='text-align:right'>ESchulz@yahoo.com</td>
+				 				</tr>
+				 				<tr>
+				 					<td colspan="6" class="hiddenRow">
+				 						<div id="demo2" class="accordian-body collapse">
+											<div class='leftAccordion'>
+				 								<span class='infoRow' style='padding-top: 14px !important;'>Location:
+				 									<div class='infoCont' style='padding-left: 13.5%;'> N30 W24845 WATERTOWN RD, Pewaukee, WI. 53072</div>
+				 								</span>
+				 								<span class='infoRow' >Education:
+				 									<div class='infoCont' style='padding-left: 11%;'> Northeastern University</div>
+				 								</span>
+				 								<span class='infoRow'>Age:
+				 									<div class='infoCont' style='padding-left: 21%;'> 56</div>
+				 								</span>
+				 								<span class='infoRow'>Relationship:
+				 									<div class='infoCont' style='padding-left: 7.5%; width: 50%'> Married</div>
+				 								</span>
+				 								<span class='infoRow'>Profession: 
+				 									<div class='infoCont' style='padding-left: 11%'> LAN Technician</div>
+				 								</span>
+				 							</div>
+				 							<div class='separator'></div>
+				 							<div class='rightAccordion'>
+				 								<span class='infoRow' style='padding: 20px 0 5px 0 !important; position: relative;'>
+				 									<img class='infoSmGlyph'src='img/logos/facebook-logo.png' style=''>
+				 									<img class='infoSmGlyph'src='img/logos/twitter-logo.png' style='left: 15%;'>
+				 									<img class='infoSmGlyph'src='img/logos/linkedin-logo.png' style='left: 30%;'>
+				 									<div style='width:45px; height: 45px;'></div>
+				 								</span>
+				 								<!-- <hr> -->
+				 								<span class='infoRow'>Bio:
+													<div class='infoCont' style='padding-left: 10%;'> Smoker, Joker, Midnight Smoker.</div>
+				 								</span>
+				 								<span class='infoRow'>Klout:
+													<div class='infoCont' style='padding-left: 7%;'> 46 </div>
+				 								</span>
+				 								<span class='infoRow'>Likes:
+													<div class='infoCont' style='padding-left: 7.5%;'> Music, Film, Food, See more...</div>
+				 								</span>
+				 								<span class='infoRow'>Talking<br>About:
+													<div class='infoCont' style='padding-left: 5.5%;'> Crimea, Oscars, Daylight Savings, Beyonce</div>
+				 								</span>
+				 							</div>
+				 						</div> 
+				 						</div>
+				 					</td>
+				 				</tr>
+				 				<tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
+				 					<td class='col-md-2'>81</td>
+				 					<td class='col-md-6' style=''>Tom Houck</td>
+				 					<td class='col-md-4' style='text-align:right'>TomHouck1@gmail.com</td>
+				 				</tr>
+				 				<tr>
+				 					<td colspan="6"  class="hiddenRow">
+				 						<div id="demo3" class="accordian-body collapse">
+				 							<div class='leftAccordion'>
+				 								<span class='infoRow' style='padding-top: 14px !important;'>Location:
+				 									<div class='infoCont' style='padding-left: 13.5%;'> N30 W24845 WATERTOWN RD, Pewaukee, WI. 53072</div>
+				 								</span>
+				 								<span class='infoRow' >Education:
+				 									<div class='infoCont' style='padding-left: 11%;'> Northeastern University</div>
+				 								</span>
+				 								<span class='infoRow'>Age:
+				 									<div class='infoCont' style='padding-left: 21%;'> 56</div>
+				 								</span>
+				 								<span class='infoRow'>Relationship:
+				 									<div class='infoCont' style='padding-left: 7.5%; width: 50%'> Married</div>
+				 								</span>
+				 								<span class='infoRow'>Profession: 
+				 									<div class='infoCont' style='padding-left: 11%'> LAN Technician</div>
+				 								</span>
+				 							</div>
+				 							<div class='separator'></div>
+				 							<div class='rightAccordion'>
+				 								<span class='infoRow' style='padding: 20px 0 5px 0 !important; position: relative;'>
+				 									<img class='infoSmGlyph'src='img/logos/facebook-logo.png' style=''>
+				 									<img class='infoSmGlyph'src='img/logos/twitter-logo.png' style='left: 15%;'>
+				 									<img class='infoSmGlyph'src='img/logos/linkedin-logo.png' style='left: 30%;'>
+				 									<div style='width:45px; height: 45px;'></div>
+				 								</span>
+				 								<!-- <hr> -->
+				 								<span class='infoRow'>Bio:
+													<div class='infoCont' style='padding-left: 10%;'> Smoker, Joker, Midnight Smoker.</div>
+				 								</span>
+				 								<span class='infoRow'>Klout:
+													<div class='infoCont' style='padding-left: 7%;'> 46 </div>
+				 								</span>
+				 								<span class='infoRow'>Likes:
+													<div class='infoCont' style='padding-left: 7.5%;'> Music, Film, Food, See more...</div>
+				 								</span>
+				 								<span class='infoRow'>Talking<br>About:
+													<div class='infoCont' style='padding-left: 5.5%;'> Crimea, Oscars, Daylight Savings, Beyonce</div>
+				 								</span>
+				 							</div>
+				 						</div> 
+				 						</div>
+				 					</td>
+				 				</tr>
+				 				<tr data-toggle="collapse" data-target="#demo4" class="accordion-toggle">
+				 					<td class='col-md-2'>77</td>
+				 					<td class='col-md-6' style=''>Melissa Murray</td>
+				 					<td class='col-md-4' style='text-align:right'>MMray12@hotmail.com</td>
+				 				</tr>
+				 				<tr>
+				 					<td colspan="6"  class="hiddenRow">
+				 						<div id="demo4" class="accordian-body collapse">
+				 							<div class='leftAccordion'>
+				 								<span class='infoRow' style='padding-top: 14px !important;'>Location:
+				 									<div class='infoCont' style='padding-left: 13.5%;'> N30 W24845 WATERTOWN RD, Pewaukee, WI. 53072</div>
+				 								</span>
+				 								<span class='infoRow' >Education:
+				 									<div class='infoCont' style='padding-left: 11%;'> Northeastern University</div>
+				 								</span>
+				 								<span class='infoRow'>Age:
+				 									<div class='infoCont' style='padding-left: 21%;'> 56</div>
+				 								</span>
+				 								<span class='infoRow'>Relationship:
+				 									<div class='infoCont' style='padding-left: 7.5%; width: 50%'> Married</div>
+				 								</span>
+				 								<span class='infoRow'>Profession: 
+				 									<div class='infoCont' style='padding-left: 11%'> LAN Technician</div>
+				 								</span>
+				 							</div>
+				 							<div class='separator'></div>
+				 							<div class='rightAccordion'>
+				 								<span class='infoRow' style='padding: 20px 0 5px 0 !important; position: relative;'>
+				 									<img class='infoSmGlyph'src='img/logos/facebook-logo.png' style=''>
+				 									<img class='infoSmGlyph'src='img/logos/twitter-logo.png' style='left: 15%;'>
+				 									<img class='infoSmGlyph'src='img/logos/linkedin-logo.png' style='left: 30%;'>
+				 									<div style='width:45px; height: 45px;'></div>
+				 								</span>
+				 								<!-- <hr> -->
+				 								<span class='infoRow'>Bio:
+													<div class='infoCont' style='padding-left: 10%;'> Smoker, Joker, Midnight Smoker.</div>
+				 								</span>
+				 								<span class='infoRow'>Klout:
+													<div class='infoCont' style='padding-left: 7%;'> 46 </div>
+				 								</span>
+				 								<span class='infoRow'>Likes:
+													<div class='infoCont' style='padding-left: 7.5%;'> Music, Film, Food, See more...</div>
+				 								</span>
+				 								<span class='infoRow'>Talking<br>About:
+													<div class='infoCont' style='padding-left: 5.5%;'> Crimea, Oscars, Daylight Savings, Beyonce</div>
+				 								</span>
+				 							</div>
+				 						</div> 
+				 						</div>
+				 					</td>
+				 				</tr>
+				 				<tr data-toggle="collapse" data-target="#demo5" class="accordion-toggle">
+				 					<td class='col-md-2'>75</td>
+				 					<td class='col-md-6' style=''>Marilyn Tyre</td>
+				 					<td class='col-md-4' style='text-align:right'>Trylyn@gmail.com</td>
+				 				</tr>
+				 				<tr>
+				 					<td colspan="6"  class="hiddenRow">
+				 						<div id="demo5" class="accordian-body collapse">
+				 							<div class='leftAccordion'>
+				 								<span class='infoRow' style='padding-top: 14px !important;'>Location:
+				 									<div class='infoCont' style='padding-left: 13.5%;'> N30 W24845 WATERTOWN RD, Pewaukee, WI. 53072</div>
+				 								</span>
+				 								<span class='infoRow' >Education:
+				 									<div class='infoCont' style='padding-left: 11%;'> Northeastern University</div>
+				 								</span>
+				 								<span class='infoRow'>Age:
+				 									<div class='infoCont' style='padding-left: 21%;'> 56</div>
+				 								</span>
+				 								<span class='infoRow'>Relationship:
+				 									<div class='infoCont' style='padding-left: 7.5%; width: 50%'> Married</div>
+				 								</span>
+				 								<span class='infoRow'>Profession: 
+				 									<div class='infoCont' style='padding-left: 11%'> LAN Technician</div>
+				 								</span>
+				 							</div>
+				 							<div class='separator'></div>
+				 							<div class='rightAccordion'>
+				 								<span class='infoRow' style='padding: 20px 0 5px 0 !important; position: relative;'>
+				 									<img class='infoSmGlyph'src='img/logos/facebook-logo.png' style=''>
+				 									<img class='infoSmGlyph'src='img/logos/twitter-logo.png' style='left: 15%;'>
+				 									<img class='infoSmGlyph'src='img/logos/linkedin-logo.png' style='left: 30%;'>
+				 									<div style='width:45px; height: 45px;'></div>
+				 								</span>
+				 								<!-- <hr> -->
+				 								<span class='infoRow'>Bio:
+													<div class='infoCont' style='padding-left: 10%;'> Smoker, Joker, Midnight Smoker.</div>
+				 								</span>
+				 								<span class='infoRow'>Klout:
+													<div class='infoCont' style='padding-left: 7%;'> 46 </div>
+				 								</span>
+				 								<span class='infoRow'>Likes:
+													<div class='infoCont' style='padding-left: 7.5%;'> Music, Film, Food, See more...</div>
+				 								</span>
+				 								<span class='infoRow'>Talking<br>About:
+													<div class='infoCont' style='padding-left: 5.5%;'> Crimea, Oscars, Daylight Savings, Beyonce</div>
+				 								</span>
+				 							</div>
+				 						</div> 
+				 						</div>
+				 					</td>
+				 				</tr>
+				 				<tr data-toggle="collapse" data-target="#demo6" class="accordion-toggle">
+				 					<td class='col-md-2'>72</td>
+				 					<td class='col-md-6' style=''>Donald Adam</td>
+				 					<td class='col-md-4' style='text-align:right'>D.Adam85@yahoo.com</td>
+				 				</tr>
+				 				<tr>
+				 					<td colspan="6"  class="hiddenRow">
+				 						<div id="demo6" class="accordian-body collapse">
+				 							<div class='leftAccordion'>
+				 								<span class='infoRow' style='padding-top: 14px !important;'>Location:
+				 									<div class='infoCont' style='padding-left: 13.5%;'> N30 W24845 WATERTOWN RD, Pewaukee, WI. 53072</div>
+				 								</span>
+				 								<span class='infoRow' >Education:
+				 									<div class='infoCont' style='padding-left: 11%;'> Northeastern University</div>
+				 								</span>
+				 								<span class='infoRow'>Age:
+				 									<div class='infoCont' style='padding-left: 21%;'> 56</div>
+				 								</span>
+				 								<span class='infoRow'>Relationship:
+				 									<div class='infoCont' style='padding-left: 7.5%; width: 50%'> Married</div>
+				 								</span>
+				 								<span class='infoRow'>Profession: 
+				 									<div class='infoCont' style='padding-left: 11%'> LAN Technician</div>
+				 								</span>
+				 							</div>
+				 							<div class='separator'></div>
+				 							<div class='rightAccordion'>
+				 								<span class='infoRow' style='padding: 20px 0 5px 0 !important; position: relative;'>
+				 									<img class='infoSmGlyph'src='img/logos/facebook-logo.png' style=''>
+				 									<img class='infoSmGlyph'src='img/logos/twitter-logo.png' style='left: 15%;'>
+				 									<img class='infoSmGlyph'src='img/logos/linkedin-logo.png' style='left: 30%;'>
+				 									<div style='width:45px; height: 45px;'></div>
+				 								</span>
+				 								<!-- <hr> -->
+				 								<span class='infoRow'>Bio:
+													<div class='infoCont' style='padding-left: 10%;'> Smoker, Joker, Midnight Smoker.</div>
+				 								</span>
+				 								<span class='infoRow'>Klout:
+													<div class='infoCont' style='padding-left: 7%;'> 46 </div>
+				 								</span>
+				 								<span class='infoRow'>Likes:
+													<div class='infoCont' style='padding-left: 7.5%;'> Music, Film, Food, See more...</div>
+				 								</span>
+				 								<span class='infoRow'>Talking<br>About:
+													<div class='infoCont' style='padding-left: 5.5%;'> Crimea, Oscars, Daylight Savings, Beyonce</div>
+				 								</span>
+				 							</div>
+				 						</div> 
+				 						</div>
+				 					</td>
+				 				</tr>
+				 				<tr data-toggle="collapse" data-target="#demo7" class="accordion-toggle">
+				 					<td class='col-md-2'>69</td>
+				 					<td class='col-md-6' style=''>Ray Arndt</td>
+				 					<td class='col-md-4' style='text-align:right'>RArndt@gmail.com</td>
+				 				</tr>
+				 				<tr>
+				 					<td colspan="6"  class="hiddenRow">
+				 						<div id="demo7" class="accordian-body collapse">
+				 							<div class='leftAccordion'>
+				 								<span class='infoRow' style='padding-top: 14px !important;'>Location:
+				 									<div class='infoCont' style='padding-left: 13.5%;'> N30 W24845 WATERTOWN RD, Pewaukee, WI. 53072</div>
+				 								</span>
+				 								<span class='infoRow' >Education:
+				 									<div class='infoCont' style='padding-left: 11%;'> Northeastern University</div>
+				 								</span>
+				 								<span class='infoRow'>Age:
+				 									<div class='infoCont' style='padding-left: 21%;'> 56</div>
+				 								</span>
+				 								<span class='infoRow'>Relationship:
+				 									<div class='infoCont' style='padding-left: 7.5%; width: 50%'> Married</div>
+				 								</span>
+				 								<span class='infoRow'>Profession: 
+				 									<div class='infoCont' style='padding-left: 11%'> LAN Technician</div>
+				 								</span>
+				 							</div>
+				 							<div class='separator'></div>
+				 							<div class='rightAccordion'>
+				 								<span class='infoRow' style='padding: 20px 0 5px 0 !important; position: relative;'>
+				 									<img class='infoSmGlyph'src='img/logos/facebook-logo.png' style=''>
+				 									<img class='infoSmGlyph'src='img/logos/twitter-logo.png' style='left: 15%;'>
+				 									<img class='infoSmGlyph'src='img/logos/linkedin-logo.png' style='left: 30%;'>
+				 									<div style='width:45px; height: 45px;'></div>
+				 								</span>
+				 								<!-- <hr> -->
+				 								<span class='infoRow'>Bio:
+													<div class='infoCont' style='padding-left: 10%;'> Smoker, Joker, Midnight Smoker.</div>
+				 								</span>
+				 								<span class='infoRow'>Klout:
+													<div class='infoCont' style='padding-left: 7%;'> 46 </div>
+				 								</span>
+				 								<span class='infoRow'>Likes:
+													<div class='infoCont' style='padding-left: 7.5%;'> Music, Film, Food, See more...</div>
+				 								</span>
+				 								<span class='infoRow'>Talking<br>About:
+													<div class='infoCont' style='padding-left: 5.5%;'> Crimea, Oscars, Daylight Savings, Beyonce</div>
+				 								</span>
+				 							</div>
+				 						</div> 
+				 						</div>
+				 					</td>
+				 				</tr>
+				 			</tbody>
+				 		</table>
+				 	</div>
+				 </section>
 				
 				<section class="center">
 					<h3>Team</h3>
@@ -589,38 +1143,91 @@
 					<p class='fragment' style='padding-bottom:5%;'>First Test Client Campaign</p>
 				</section>
 
+				<section class="center" data-state="title-slide" data-background="#3366cc">
+					<h1 class="title-slide-text">Future Markets</h1>
+				</section>
+
 				<section>
-					<p>Looking forward</p>
-					<p>Show market sizing</p>
+
+					<div class='fragment' style='width: 100%; float:left; padding:2.5%; padding-top:5%;'>
+						<h4 style='text-align: left; float: left;'>Social Media Analytics</h4>
+						<p style='font-size:80%; text-align: left; float: right;'>$2.1bn</p>
+					</div>
+					<div class='fragment' style='width: 100%; float:left; padding:2.5%; padding-top:5%;'>
+						<h4 style='text-align: left; float: left;'>Lead Generation</h4>
+						<p style='font-size:80%; text-align: left; float:right;'>$27bn</p>
+					</div>
+					<div class='fragment' style='width: 100%; float:left; padding:2.5%; padding-top:5%;'>
+						<h4 style='text-align: left; float: left;'>Online Advertising</h4>
+						<p style='font-size:80%; text-align: left; float:right;'>$50bn</p>
+					</div>
+					<div class='fragment' style='width: 100%; float:left; padding:2.5%; padding-top:5%;'>
+						<h4 style='text-align: left; float: left;'>and so on...</h4>
+						<!-- <p style='font-size:80%; text-align: left; float:right;'>$50bn</p> -->
+					</div>
 				</section>
 
 				<section>
 					<p><img src="img/logo.svg" height="400px"></img></p>
 					<h2>Alpaca</h2>
-					<p class='fragment'>Activate Your Donors and Voters</p>
+					<p class='fragment'>Activate Your Donors</p>
 				</section>
 
+				<!-- <section>
+					<h3> Milestones </h3>
+					<hr>
+					<div class='' style='width: 100%; float:left; padding:2.5%; padding-top:5%;'>
+						<h4 style='text-align: left; float: left;'></h4>
+						<p style='font-size:80%; text-align: left; float: right;'>Get votes</p>
+					</div>
+					<div class='' style='width: 100%; float:left; padding:2.5%; padding-top:5%;'>
+						<h4 style='text-align: left; float: left;'>Fundraising Directors</h4>
+						<p style='font-size:80%; text-align: left; float:right;'>Get money</p>
+					</div>
+					<div class='' style='width: 100%; float:left; padding:2.5%; padding-top:5%;'>
+						<h4 style='text-align: left; float: left;'>Pollsters</h4>
+						<p style='font-size:80%; text-align: left; float:right;'>Get data</p>
+					</div>
+				</section> -->
+
 				<section>
+					<h3> Appendix A: Data Resources </h3>
+					<hr>
+
+					<!-- <p>
 					<p>Appendix 2: Data resources: A list of problems and our potential resolvers</p>
 					<p>Identity Resolution, Data Access, (sunlight, opensecrets, followthemoney, gnip, preferred API partnerships)</p>
-					<p>Include some basic accuracy or pricing information here too</p>
+					<p>Include some basic accuracy or pricing information here too</p> -->
 				</section>
 
 				<section>
-					<p> Appendix 3: Data Results. We should put some LSM, donor classification, and political classification stuff here</p>
+					<h3> Appendix B: Data Results </h3>
+					<hr>
+					<div class='' style='width: 100%; float:left; padding:2.5%; padding-top:5%;'>
+						<h4 style='text-align: left; float: left;'>Pennebaker & Least Inquiry Word Count</h4>
+						<br>
+						<hr>
+						<p style='font-size:80%; text-align: left; float:left;'>Romantic Compatibility</p><br>
+						<p style='font-size:80%; text-align: left; float:left;'>Age & Gender</p><br>
+						<p style='font-size:80%; text-align: left; float:left;'>Collectivism v. Individualism</p><br>
+					</div>
+					<div class='' style='width: 100%; float:left; padding:2.5%; padding-top:5%;'>
+						<h4 style='text-align: left; float: left;'>Political Classification</h4>
+						<br>
+						<hr>
+						<p style='font-size:80%; text-align: left; float:left;'>70% Accuracy</p>
+					</div>
+					<!-- <p> Appendix 3: Data Results. We should put some LSM, donor classification, and political classification stuff here</p>
 					<p> just as a prop in case they dig into our tool</p>
 					<p>	1)Pennebaker research </p>
-					<p> 2)political classification </p>
+					<p> 2)political classification </p> -->
 				</section>
 
 				<section>
-					<p>Milestones</p>
+					<h3> Appendix C: Our Stack</h3>
+					<hr>
+					<img src='img/ourStack.png'>
 				</section>
-
-				<section>
-					<p> 
-				</section>
-
 
 			</div>
 
@@ -664,29 +1271,43 @@
 			});
 
 			// If we start off on this slide
-			Reveal.addEventListener( 'ready', function( event ) {
-				if (event.indexh === animatedSlide) {
-					console.log("animate slide " + event.indexh);
-					animateSlide();
-				}
-			} );
+			// Reveal.addEventListener( 'ready', function( event ) {
+			// 	if (event.indexh === animatedSlide) {
+			// 		console.log("animate slide " + event.indexh);
+			// 		animateSlide();
+			// 	}
+			// } );
 
 			// If we navigate to the slide from the slide before or slide after
-			Reveal.addEventListener( 'slidechanged', function( event ) {
+			Reveal.addEventListener('slidechanged', function(event) {
 
-				if (event.indexh === animatedSlide) {
-					console.log("animate slide " + event.indexh);
-					animateSlide();
-				}
-				else if (event.indexh === animatedSlide-1 || event.indexh === animatedSlide+1) {
+				// if (event.indexh === animatedSlide) {
+				// 	console.log("animate slide " + event.indexh);
+				// 	animateSlide();
+				// }
+				// else 
+				if (event.indexh === animatedSlide-1 || event.indexh === animatedSlide+1) {
 					console.log("reset from slide " + event.indexh);
 					resetSlide();
 				}
 
-				// else if (event.previousSlide == 3 || event.nextSlide == 4) {
-				
-				// }
 			} );
+
+			Reveal.addEventListener('fragmentshown', function(event) {
+				stopAnimation();
+				console.log(event.fragment);
+				console.log(event.fragments);
+				fn = event.fragment.getAttribute('data-fragment-fn');
+				if (fn) window[fn](700).forward();
+			});
+
+			Reveal.addEventListener('fragmenthidden', function(event) {
+				stopAnimation();
+				console.log(event.fragment);
+				console.log(event.fragments);
+				fn = event.fragment.getAttribute('data-fragment-fn');
+				if (fn) window[fn](700).reverse();
+			});
 
 		</script>
 
