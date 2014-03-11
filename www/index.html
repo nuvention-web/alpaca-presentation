@@ -696,7 +696,6 @@
 									$(".data-resolve-row").addClass('hide');
 									$(".cluster-people-row").removeClass('hide');
 									colors = ['red','blue','green','orange'];
-									clusterOffsets = [[20,-200],[20,200],[],[]];
 									$(".cluster-people-elem").each(function() {
 										rand = Math.floor(Math.random()*4);
 										$(this).css('color',colors[rand]);
@@ -765,21 +764,21 @@
 										else if (person.css("color") == "rgb(0, 128, 0)") { // green
 											person.animate({ 
 												top:  -personOffset.top + borderOffset, 
-												left: -personOffset.left + windowWidth + personWidth - greenManGroup.length * personWidth - borderOffset}
+												left: -personOffset.left + windowWidth + personWidth - greenManGroup.length * personWidth - borderOffset - 100}
 											, interval);
 											greenManGroup.push(person);
 										}
 										else if (person.css("color") == "rgb(255, 0, 0)") { // red
 											person.animate({
-												top:  -personOffset.top + windowHeight - borderOffset, 
+												top:  -personOffset.top + windowHeight - borderOffset - 50, 
 												left: -personOffset.left + redManGroup.length * personWidth + borderOffset}
 											, interval);
 											redManGroup.push(person);
 										}
 										else if (person.css("color") == "rgb(255, 165, 0)") { // orange
 											person.animate({ 
-												top:  -personOffset.top + windowHeight - borderOffset, 
-												left: -personOffset.left + windowWidth + personWidth - orangeManGroup.length * personWidth - borderOffset}
+												top:  -personOffset.top + windowHeight - borderOffset - 50, 
+												left: -personOffset.left + windowWidth + personWidth - orangeManGroup.length * personWidth - borderOffset - 100}
 											, interval);
 											orangeManGroup.push(person);
 										}
@@ -849,7 +848,7 @@
 
 										console.log(person);
 										person.animate({ 
-											top:  -personOffset.top + windowHeight - borderOffset, 
+											top:  -personOffset.top + windowHeight - borderOffset - 50, 
 											left: -personOffset.left + numRed * personWidth + borderOffset
 										}, interval);
 									}, interval);
