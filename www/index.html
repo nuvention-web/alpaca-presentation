@@ -422,12 +422,15 @@
 
 					<div style="display: table;">
 
-						<div style='display: table-cell; vertical-align: middle; width: 33%;'>
-							<img class="competitor fragment" src='img/ngpvan.png' style='float:left;' data-fragment-index="1">
-							<img class="competitor fragment" src='img/nationbuilder.png' style='float:left;' data-fragment-index="2">
+						<div id="asdf1" style='display: table-cell; vertical-align: middle; width: 33%; height: 600px'>
+							<div class='ofa-icons'> 
+								<img class="competitor fragment" src='img/ngpvan.png' style='float:left;' data-fragment-index="1">
+								<img class="competitor fragment" src='img/nationbuilder.png' style='float:left;' data-fragment-index="2">
+							</div>
+							<img id="dollarimg" class="fragment" style="display: none;" data-fragment-index='10' src='img/dollar.png' data-fragment-fn="showsm">
 						</div>
 
-						<div style='display: table-cell; vertical-align: middle; width: 33%;' class='fragment' data-fragment-index="8">
+						<div id="asdf2" style='display: table-cell; vertical-align: middle; width: 33%; height: 600px' class='fragment' data-fragment-index="8">
 
 							<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
 								 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="300px"
@@ -597,14 +600,51 @@
 							</svg>
 
 						</div>
-						<div style='display: table-cell; vertical-align: middle; width: 33%;'>
-							<div class='fragment fade-out' data-fragment-index="9"> 
+
+						<script>
+							function hideLogos(delay) {
+								return {
+									forward: function() {
+										var height = $($('.ofa-icons')[0]).css('height');
+										var width = $($('.ofa-icons')[0]).css('width');
+
+										// $('#asdf1').css('height', height);
+										// $('#asdf2').css('height', height);
+
+										$('#asdf1').css('width', width);
+										$('#asdf2').css('width', width);
+
+										$('.ofa-icons').fadeOut();
+										console.log("asdf");
+									}
+								}							
+							}
+
+							function showsm(delay) {
+								return {
+									forward: function() {
+										$("#smimg").fadeIn();
+										$("#dollarimg").fadeIn();
+									}
+								}
+							}
+						</script>
+
+<!-- 						<div style='display: table-cell; vertical-align: middle; width: 33%;'>
+						</div> -->
+
+						<!--  -->
+
+						<div style='display: table-cell; vertical-align: middle; width: 33%; height: 600px'>
+							<div class='ofa-icons'> 
 								<img class="competitor fragment" src='img/270.png' style='' data-fragment-index="3">
 								<img class="competitor fragment" src='img/bluelabs.png' style='' data-fragment-index="4">
 								<img class="competitor fragment" src='img/bsd_logo.png' style='' data-fragment-index="5">
 								<img class="competitor fragment" src='img/civis.png' style='' data-fragment-index="6">
 								<img class="competitor fragment" src='img/pgs.png' style='' data-fragment-index="7">
 							</div>
+							<span class="fragment" data-fragment-index="9" data-fragment-fn="hideLogos"></span>
+							<img id="smimg" class="fragment" style="display: none;" data-fragment-index='10' src='img/sm.png' data-fragment-fn="showsm">
 						</div>
 					</div>
 				</section>
@@ -614,6 +654,7 @@
 				</section>
 
 				<section>
+<<<<<<< HEAD
 				<h3>Narrative Insights</h3>
 				<hr>
 				<h5>25-34 year olds heavily interested in family, active with personal blogs and websites.</h5>
@@ -624,6 +665,38 @@
 				<h5>55+ age group heavily focused on NPOs & social/political causes, disinterested in health.</h5>
 				<br>
 				</section>
+=======
+					<iframe width="100%" height="600px;" src="//www.youtube.com/embed/tQh2EuHgwyY" frameborder="0" allowfullscreen></iframe>
+				</section>
+
+				<section>
+					<h3>Political Technology</h3>
+					<hr>
+					<div class='fragment'>
+						<div style='float:left; width:33%;'>
+							<h4 style='text-align: center;'>NGPVan</h4>
+							<p style='font-size:60%; text-align: center;'>Leading technology provider to Democratic campaigns</p>
+						</div>
+						<div style='float: left; width:33%;'>
+							<h4 style='text-align: center;'>Nationbuilder</h4>
+							<p style='font-size:60%; text-align: center;'>Online community organizing system</p>
+						</div>
+						<div style='float: left; width: 33%;'>
+							<h4 style='text-align: center;'>Aristotle</h4>
+							<p style='font-size:60%; text-align: center;'>Political Technology</p>
+						</div>
+					</div>
+
+					<div class='fragment' style='float:left; margin-top:100px;'>
+						<table width='100%;'>
+							<tr><td style='text-align: center; padding:10px;'>Limited NLP/ML</td>
+								<td style='text-align: center; padding:10px;'>Politically Aligned</td>
+								<td style='text-align: center; padding:10px;'>Little OSN Usage</td>
+							</tr>
+						</table>
+						<!-- <p style='font-size:80%; text-align: left;'>Obama put $33 million into tech</p> -->
+					</div>
+>>>>>>> 8b89219bba4acac5377d3cb84ae1e02d66998a66
 
 				<section>
 					<ul class="center" style="list-style-type: disc; line-height: 300%;">
