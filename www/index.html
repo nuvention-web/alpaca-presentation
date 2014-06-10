@@ -17,6 +17,7 @@
 
 		<script src="http://ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
 		<script src="js/snap.svg-min.js"></script>
+	    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
 	    <script>
 	        WebFont.load({
@@ -56,6 +57,119 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+
+		<script>
+			// If you're adding a number of markers, you may want to
+			// drop them on the map consecutively rather than all at once.
+			// This example shows how to use setTimeout() to space
+			// your markers' animation.
+
+			var usa = new google.maps.LatLng(37.6,-95.665);
+
+			// http://dev.maxmind.com/geoip/legacy/codes/state_latlon/
+			var neighborhoods = [
+			  new google.maps.LatLng(40.3363,-89.0022),
+			  new google.maps.LatLng(61.3850,-152.2683),
+			  new google.maps.LatLng(32.7990,-86.8073),
+			  new google.maps.LatLng(34.9513,-92.3809),
+			  new google.maps.LatLng(14.2417,-170.7197),
+			  new google.maps.LatLng(33.7712,-111.3877),
+			  new google.maps.LatLng(36.1700,-119.7462),
+			  new google.maps.LatLng(39.0646,-105.3272),
+			  new google.maps.LatLng(41.5834,-72.7622),
+			  new google.maps.LatLng(38.8964,-77.0262),
+			  new google.maps.LatLng(39.3498,-75.5148),
+			  new google.maps.LatLng(27.8333,-81.7170),
+			  new google.maps.LatLng(32.9866,-83.6487),
+			  new google.maps.LatLng(21.1098,-157.5311),
+			  new google.maps.LatLng(42.0046,-93.2140),
+			  new google.maps.LatLng(44.2394,-114.5103),
+			  new google.maps.LatLng(39.8647,-86.2604),
+			  new google.maps.LatLng(38.5111,-96.8005),
+			  new google.maps.LatLng(37.6690,-84.6514),
+			  new google.maps.LatLng(31.1801,-91.8749),
+			  new google.maps.LatLng(42.2373,-71.5314),
+			  new google.maps.LatLng(39.0724,-76.7902),
+			  new google.maps.LatLng(44.6074,-69.3977),
+			  new google.maps.LatLng(43.3504,-84.5603),
+			  new google.maps.LatLng(45.7326,-93.9196),
+			  new google.maps.LatLng(38.4623,-92.3020),
+			  new google.maps.LatLng(14.8058,145.5505),
+			  new google.maps.LatLng(32.7673,-89.6812),
+			  new google.maps.LatLng(46.9048,-110.3261),
+			  new google.maps.LatLng(35.6411,-79.8431),
+			  new google.maps.LatLng(47.5362,-99.7930),
+			  new google.maps.LatLng(41.1289,-98.2883),
+			  new google.maps.LatLng(43.4108,-71.5653),
+			  new google.maps.LatLng(40.3140,-74.5089),
+			  new google.maps.LatLng(34.8375,-106.2371),
+			  new google.maps.LatLng(38.4199,-117.1219),
+			  new google.maps.LatLng(42.1497,-74.9384),
+			  new google.maps.LatLng(40.3736,-82.7755),
+			  new google.maps.LatLng(35.5376,-96.9247),
+			  new google.maps.LatLng(44.5672,-122.1269),
+			  new google.maps.LatLng(40.5773,-77.2640),
+			  // new google.maps.LatLng(18.2766,-66.3350),
+			  new google.maps.LatLng(41.6772,-71.5101),
+			  new google.maps.LatLng(33.8191,-80.9066),
+			  new google.maps.LatLng(44.2853,-99.4632),
+			  new google.maps.LatLng(35.7449,-86.7489),
+			  new google.maps.LatLng(31.1060,-97.6475),
+			  new google.maps.LatLng(40.1135,-111.8535),
+			  new google.maps.LatLng(37.7680,-78.2057),
+			  // new google.maps.LatLng(18.0001,-64.8199),
+			  new google.maps.LatLng(44.0407,-72.7093),
+			  new google.maps.LatLng(47.3917,-121.5708),
+			  new google.maps.LatLng(44.2563,-89.6385),
+			  new google.maps.LatLng(38.4680,-80.9696),
+			  new google.maps.LatLng(42.7475,-107.2085)
+			];
+
+			var markers = [];
+			var iterator = 0;
+
+			var map;
+
+			function initialize() {
+			  var mapOptions = {
+			    zoom: 5,
+			    center: usa
+			  };
+
+			  map = new google.maps.Map(document.getElementById('map-canvas'),
+			          mapOptions);
+
+			  markers.push(new google.maps.Marker({
+			    position: new google.maps.LatLng(42.0464, -87.6947),
+			    map: map,
+			    draggable: false,
+			    animation: google.maps.Animation.DROP
+			  }));
+
+			}
+
+			function drop() {
+			  for (var i = 0; i < neighborhoods.length; i++) {
+			    setTimeout(function() {
+			      addMarker();
+			    }, i * 200);
+			  }
+			}
+
+			function addMarker() {
+			  markers.push(new google.maps.Marker({
+			    position: neighborhoods[iterator],
+			    map: map,
+			    draggable: false,
+			    animation: google.maps.Animation.DROP
+			  }));
+			  iterator++;
+			}
+
+			google.maps.event.addDomListener(window, 'load', initialize);
+		    
+		</script>
+
 	</head>
 
 	<body>
@@ -82,6 +196,12 @@
 			.competitor {
 				height: 150px;
 				padding: 10px !important;
+			}
+
+			#map-canvas {
+				height: 600px;
+				margin: 0px;
+				padding: 0px
 			}
 
 		</style>		
@@ -282,8 +402,20 @@
 					<img style="height: 400px" src="img/vote.jpg" />
 				</section>
 
-				<section class="center">
-					<img style="height: 400px" src="img/map.gif" />
+				<section>
+
+					<script>
+						function dropWrapper(delay) {
+							return {
+								forward: drop
+							}							
+						}
+					</script>
+
+				    <div id="map-canvas"></div>
+				    <div class="fragment" data-fragment-fn="dropWrapper"></div>
+					<!-- <img style="height: 400px" src="img/map.gif" /> -->
+					
 				</section>
 
 				<section class="center">
@@ -1305,7 +1437,7 @@
 			} );
 
 			Reveal.addEventListener('fragmentshown', function(event) {
-				stopAnimation();
+				// stopAnimation();
 				console.log(event.fragment);
 				console.log(event.fragments);
 				fn = event.fragment.getAttribute('data-fragment-fn');
@@ -1313,7 +1445,7 @@
 			});
 
 			Reveal.addEventListener('fragmenthidden', function(event) {
-				stopAnimation();
+				// stopAnimation();
 				console.log(event.fragment);
 				console.log(event.fragments);
 				fn = event.fragment.getAttribute('data-fragment-fn');
